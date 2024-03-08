@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AppController;
+use Illuminate\Support\Facades\Route; 
 
+use App\Http\Controllers\AppController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('dashboard',[AppController::class,"dashboard"]);
+Route::get('home',[AppController::class,"home"]);
