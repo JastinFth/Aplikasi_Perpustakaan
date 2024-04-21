@@ -1,0 +1,14 @@
+.bgg{
+    background-image: url('assets_front/image/read3.jpg');
+    background-position: center;
+    background-size: cover;
+}
+h1{
+    background:linear-gradient(to right,#ffffff 0%,#00a3e4da 100%)  ;
+    background-clip: text;
+    color: transparent; 
+} 
+ 
+#judul{
+    opacity: 100%;
+}
