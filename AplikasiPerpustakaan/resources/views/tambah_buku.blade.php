@@ -1,33 +1,85 @@
-@extends('template')
-@section('content')
-      <!--  Header End -->
-      <div class="container-fluid">
-        <div class="container-fluid">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title fw-semibold mb-4">Forms</h5>
-              <div class="card">
-                <div class="card-body">
-                  <form>
-                    <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                    </div>
-                    <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <div class="mb-3 form-check">
-                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                  </form>
-                </div>
-              </div>
+<h1>Tambah Pegawai</h1>
+<hr>
+<div class="card">
+    <div class="card card-body">
+        <form action="{{ url('proses-tambah-data') }}" enctype="multipart/form-data" method="post">
+            @csrf
+
+            <div class="mb-3">
+                <label class="label-form">Foto</label>
+                <input type="file" class="form-control" name="picture" required>
             </div>
-          </div>
-        </div>
-      </div>
-@endsection
+            <div class="mb-3">
+                <label for="nip" class="form-label">NIP</label>
+                <input type="text" class="form-control" name="number_id">
+            </div>
+
+
+            <div class="mb-3">
+                <label for="" class="form-label">
+                    Nama
+                </label>
+                <input type="text" name="name" class="form-control">
+            </div>
+
+
+            <div class="mb-3">
+                <label for="" class="form-label">Jenis Kelamin</label>
+                <div class="form-check">
+                    <label for="">
+                        <input name="gender" type="radio" class="form-check-input" value="L">
+                        Laki Laki
+                    </label>
+                </div>
+
+
+                <div class="form-check">
+                    <label for="">
+                        <input name="gender" type="radio" class="form-check-input" value="P">
+                        Perempuan
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="" class="form-label">
+                    Tempat Lahir
+                </label>
+                <input type="text" name="birth_place" class="form-control">
+            </div>
+
+
+            <div class="mb-3">
+                <label for="" class="form-label">
+                    Tanggal Lahir
+                </label>
+                <input type="date" name="birth_date" class="form-control">
+            </div>
+
+
+            <div class="mb-3">
+                <label for="
+                alamat" class="form-label">Alamat</label>
+                <textarea name="address" id="address" cols="30" rows="10" class="form-control"></textarea>
+            </div>
+
+
+            <div class="mb-3">
+                <label  class="form-label">Bagian</label>
+                <select class="form-select" name="division">
+            @foreach ($divisions as $row)
+                <option value="{{ $row->id }}">
+                {{ $row->name }}
+                </option>
+            @endforeach</select>
+            </div>
+
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
+            </div>
+            </form>
+
+    </div>
+</div>
