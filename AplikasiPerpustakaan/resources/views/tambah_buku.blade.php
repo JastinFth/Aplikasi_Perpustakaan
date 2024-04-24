@@ -1,85 +1,101 @@
-<h1>Tambah Pegawai</h1>
-<hr>
-<div class="card">
-    <div class="card card-body">
-        <form action="{{ url('proses-tambah-data') }}" enctype="multipart/form-data" method="post">
-            @csrf
+<link rel="stylesheet" href="{{ url('bootstrap/css/bootstrap.min.css') }}" type="text/css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<div class="container">
 
-            <div class="mb-3">
-                <label class="label-form">Foto</label>
-                <input type="file" class="form-control" name="picture" required>
-            </div>
-            <div class="mb-3">
-                <label for="nip" class="form-label">NIP</label>
-                <input type="text" class="form-control" name="number_id">
-            </div>
-
-
-            <div class="mb-3">
-                <label for="" class="form-label">
-                    Nama
-                </label>
-                <input type="text" name="name" class="form-control">
-            </div>
-
-
-            <div class="mb-3">
-                <label for="" class="form-label">Jenis Kelamin</label>
-                <div class="form-check">
-                    <label for="">
-                        <input name="gender" type="radio" class="form-check-input" value="L">
-                        Laki Laki
+    <h1>Tambah Buku</h1>
+    <hr>
+    <div class="card">
+        <div class="card card-body p-3 ">
+            <form action="{{ url('proses-tambah-data') }}" enctype="multipart/form-data" method="post">
+                @csrf
+    
+                
+                <div class="mb-3">
+                    <label for="nip" class="form-label">ISBN</label>
+                    <input type="text" class="form-control" name="number_id">
+                </div>
+    
+                <div class="mb-3">
+                    <label for="nip" class="form-label">Nama</label>
+                    <input type="text" class="form-control" name="name">
+                </div>
+    
+                <div class="mb-3">
+                    <label class="label-form">Foto</label>
+                    <input type="file" class="form-control" name="picture" required>
+                </div>
+    
+                <div class="mb-3">
+                    <label  class="form-label">Kategori</label>
+                    <select class="form-select" name="category">
+                //foreach kurbi $divisions as $row
+                    <option value="kurkurawa $row->id ">
+                    // $row->name  kurkurawa
+                    </option>
+               //endforeach</select>
+                </div>
+    
+    
+            
+            
+            
+                <div class="mb-3">
+                    <label for="" class="form-label">
+                       Penulis
                     </label>
+                    <input type="text" name="author" class="form-control">
+                </div>
+    
+                <div class="mb-3">
+                    <label for="
+                    publisher" class="form-label">Penerbit </label>
+                    <input type="text" name="publisher" class="form-control">
+                </div>
+                  
+
+                <div class="mb-3">
+                    <label  class="form-label">Rak Buku</label>
+                    <select class="form-select" name="bookselves">
+                //foreach kurbi $divisions as $row
+                    <option value="kurkurawa $row->id ">
+                    // $row->name  kurkurawa
+                    </option>
+               //endforeach</select>
+                </div>
+    
+    
+                <div class="mb-3">
+                    <label for="" class="form-label">
+                        Tanggal Lahir
+                    </label>
+                    <input type="date" name="birth_date" class="form-control">
+                </div> 
+
+                <div class="mb-3">
+                    <label for="" class="form-label">Rekomendasi</label>
+                    <div class="form-check">
+                        <label for="">
+                            <input name="gender" type="radio" class="form-check-input" value="1">
+                            Iya
+                        </label>
+                    </div>
+                </div>
+            
+                    <div class="form-check">
+                        <label for="">
+                            <input name="gender" type="radio" class="form-check-input" value="0">
+                            Tidak
+                        </label>
+                    </div>
+    
+    <br>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
                 </div>
 
-
-                <div class="form-check">
-                    <label for="">
-                        <input name="gender" type="radio" class="form-check-input" value="P">
-                        Perempuan
-                    </label>
-                </div>
-            </div>
-
-
-            <div class="mb-3">
-                <label for="" class="form-label">
-                    Tempat Lahir
-                </label>
-                <input type="text" name="birth_place" class="form-control">
-            </div>
-
-
-            <div class="mb-3">
-                <label for="" class="form-label">
-                    Tanggal Lahir
-                </label>
-                <input type="date" name="birth_date" class="form-control">
-            </div>
-
-
-            <div class="mb-3">
-                <label for="
-                alamat" class="form-label">Alamat</label>
-                <textarea name="address" id="address" cols="30" rows="10" class="form-control"></textarea>
-            </div>
-
-
-            <div class="mb-3">
-                <label  class="form-label">Bagian</label>
-                <select class="form-select" name="division">
-            @foreach ($divisions as $row)
-                <option value="{{ $row->id }}">
-                {{ $row->name }}
-                </option>
-            @endforeach</select>
-            </div>
-
-
-            <div class="mb-3">
-                <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
-            </div>
-            </form>
-
+                </form>
+    
+        </div>
     </div>
+    
 </div>

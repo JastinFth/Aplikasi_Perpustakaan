@@ -15,7 +15,13 @@ class AppController extends Controller
         return view("dashboard");
     }
     public function tambah_buku(){
-        return view("tambah-buku");
+        return view("tambah_buku");
+    }
+    public function login(){
+        return view("login");
+    }
+    public function register(){
+        return view("register");
     }
      
 }
