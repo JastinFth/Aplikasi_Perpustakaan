@@ -22,4 +22,5 @@ class AppController extends Controller
         return view("edit_buku");
     }
      
+    
 }
