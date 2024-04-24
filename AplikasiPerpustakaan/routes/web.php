@@ -15,8 +15,9 @@ use App\Http\Controllers\AppController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('dashboard',[AppController::class,"dashboard"]);
 Route::get('home',[AppController::class,"home"]);
+Route::get('tambah_buku',[AppController::class,"tambah-buku"]);

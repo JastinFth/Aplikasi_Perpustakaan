@@ -5,21 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Landing Page - Start Bootstrap Theme</title>
-        <!-- Favicon-->
+        <title>Home</title>
+         
         <link rel="icon" type="image/x-icon" href="{{ url('assets_front/favicon.ico') }}" />
-        <!-- Bootstrap icons-->
+         
         <link href="{{ url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css') }}" rel="stylesheet" type="text/css" />
-        <!-- Google fonts-->
+         
         <link href="{{ url('https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic') }}" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
+         
         <link href="{{ url('assets_front/css/styles.css') }}" rel="stylesheet" />
         <link href="{{ url('app.css') }}" rel="stylesheet" />
     </head>
     <body>
-        <!-- Navigation-->
-        
-        <!-- Masthead-->
+       
          <style>
             .hop:hover{
                 background-color: blue;
@@ -79,7 +77,7 @@
        
     </style>
 
-        <div class="card m-2 p-2  shadow wrbg">
+        <div class="card m-2 p-2 align-items-center   shadow wrbg">
             <h2 class="m-2 p-1"><b>BUKU REKOMENDASI</b></h2>
             <div class="wrapper m-2"> 
                 <div class="item align-items-center    p-1 m-1 card shadow">
@@ -116,7 +114,7 @@
         </div>
         
 
-        <div class="card m-2 p-2  shadow wrbg">
+        <div class="card m-2 p-2 align-items-center   shadow wrbg">
             <h2 class="m-2 ms-4 p-1"><b>BUKU YANG SEDANG POPULER</b></h2>
             <div class="wrapper m-2"> 
                 <div class="item align-items-center    p-1 m-1 card shadow">
