@@ -22,6 +22,6 @@ class Book extends Model
     }
     
     function books() {
-        return $this->belongsTo(Recommendation::class,"recommendation_id","id");
+        return $this->belongsTo(Bookshelf::class,"bookshelf_id","id");
     }
 }
