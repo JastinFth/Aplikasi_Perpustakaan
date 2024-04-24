@@ -21,6 +21,9 @@
                           <h6 class="fw-semibold mb-0">Foto</h6>
                         </th>
                         <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Nama</h6>
+                        </th>
+                        <th class="border-bottom-0">
                           <h6 class="fw-semibold mb-0">Kategori</h6>
                         </th>
                         <th class="border-bottom-0">
@@ -42,39 +45,41 @@
                     </thead>
                     <tbody>
                       <?php $no = 0; ?>
-                      
+                      @foreach($books as $book)
                       <?php $no++; ?>
                       <tr>
                       <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $no }}</h6></td>
                         <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">Sunil Joshi</h6>
-                            <span class="fw-normal">Web Designer</span>                          
+                            <h6 class="fw-semibold mb-1">{{$book->number_id}}</h6>                        
                         </td>
                         <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">Elite Admin</p>
+                          <p class="mb-0 fw-normal"></p>
                         </td>
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-2">
-                            <span class="badge bg-primary rounded-3 fw-semibold">Low</span>
+                            <h6 class="fw-semibold mb-0 fs-4">{{$book->name}}</h6>
                           </div>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
+                          <h6 class="fw-semibold mb-0 fs-4">{{$book->category->name}}</h6>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
+                          <h6 class="fw-semibold mb-0 fs-4">{{$book->author}}</h6>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
+                          <h6 class="fw-semibold mb-0 fs-4">{{$book->publisher}}</h6>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
+                          <h6 class="fw-semibold mb-0 fs-4">{{$book->bookshelf->bookshelf}}</h6>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
+                          <h6 class="fw-semibold mb-0 fs-4">{{$book->recommendation->yes_no}}</h6>
+                        </td>
+                        <td class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0 fs-4">{{$book->stock}}</h6>
                         </td>
                       </tr>
-                              
+                      @endforeach
                     </tbody>
                   </table>
                 </div>

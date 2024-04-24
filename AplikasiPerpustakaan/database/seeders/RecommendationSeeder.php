@@ -17,10 +17,10 @@ class RecommendationSeeder extends Seeder
         //
         $data = ([
             ([
-                "yes/no"=>"yes",
+                "yes_no"=>"yes",
             ]),
             ([
-                "yes/no"=>"no",
+                "yes_no"=>"no",
             ]),
         ]);
 

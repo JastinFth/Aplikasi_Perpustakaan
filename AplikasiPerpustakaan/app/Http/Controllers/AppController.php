@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\models\Book;
+use App\Models\Bookshelf;
+use App\Models\Category;
+use App\Models\Recommendation;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -26,13 +29,20 @@ class AppController extends Controller
 
     public function dashboard(Request $request){
         $books = Book::get();
+        $recomendations = Recommendation::get();
+        $categories = Category::get();
+        $bookshelfs = Bookshelf::get();
 
         $data = ([
             'books' => $books,
+            'recommendations' => $recomendations,
+            'categories' => $categories,
+            'bookshelfs' => $bookshelfs,
+
         ]);
-        
+
         return view("dashboard",$data) ;
     }
-    
+}  
 
 
