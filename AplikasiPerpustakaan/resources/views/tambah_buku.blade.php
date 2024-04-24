@@ -30,8 +30,8 @@
                     <select class="form-select" name="category">
                 //foreach kurbi $divisions as $row
                     <option value="kurkurawa $row->id ">
-                    // $row->name  kurkurawa
-                    </option>
+                   
+                    </option> // $row->name  kurkurawa
                //endforeach</select>
                 </div>
     
@@ -58,8 +58,8 @@
                     <select class="form-select" name="bookselves">
                 //foreach kurbi $divisions as $row
                     <option value="kurkurawa $row->id ">
-                    // $row->name  kurkurawa
-                    </option>
+                    
+                    </option>// $row->name  kurkurawa
                //endforeach</select>
                 </div>
     

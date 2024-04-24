@@ -19,9 +19,10 @@
           <div class="col-md-8 col-lg-6 col-xxl-3">
             <div class="card mb-0">
               <div class="card-body"> 
+                 <h2 class="text-center">REGISTER</h2>
                 <form>
                   <div class="mb-3">
-                    <label for="exampleInputtext1" class="form-label">Name</label>
+                    <label for="exampleInputtext1" class="form-label">Username</label>
                     <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp">
                   </div>
                   
