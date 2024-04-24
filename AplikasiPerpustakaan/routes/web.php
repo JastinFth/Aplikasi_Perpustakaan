@@ -20,3 +20,6 @@ Route::get('/', function () {
 
 Route::get('dashboard',[AppController::class,"dashboard"]);
 Route::get('home',[AppController::class,"home"]);
+Route::get('tambah-buku',[AppController::class,"tambah_buku"]);
+Route::get('edit-buku',[AppController::class,"edit_buku"]);
+Route::get('hapus-buku',[AppController::class,"hapus_buku"]);
