@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login</title> 
+  <title>Register</title> 
   <link rel="stylesheet" href="../assets/css/styles.min.css" />
 </head>
 
@@ -18,30 +18,22 @@
         <div class="row justify-content-center w-100">
           <div class="col-md-8 col-lg-6 col-xxl-3">
             <div class="card mb-0">
-              <div class="card-body">
-                <h2 class="text-center">LOGIN</h2>
+              <div class="card-body"> 
+                 <h2 class="text-center">REGISTER</h2>
                 <form>
                   <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Username</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="exampleInputtext1" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp">
                   </div>
+                  
                   <div class="mb-4">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
                     <input type="password" class="form-control" id="exampleInputPassword1">
                   </div>
-                  <div class="d-flex align-items-center justify-content-between mb-4">
-                    <div class="form-check">
-                      <input class="form-check-input primary" type="checkbox" value="" id="flexCheckChecked" checked>
-                      <label class="form-check-label text-dark" for="flexCheckChecked">
-                        Remeber this Device
-                      </label>
-                    </div>
-                    <a class="text-primary fw-bold" href="./index.html">Forgot Password ?</a>
-                  </div>
-                  <a href="./index.html" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign In</a>
+                  <a href="./index.html" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign Up</a>
                   <div class="d-flex align-items-center justify-content-center">
-                    <p class="fs-4 mb-0 fw-bold">New to JasaHurray?</p>
-                    <a class="text-primary fw-bold ms-2" href="{{ url('register') }}">Create an account</a>
+                    <p class="fs-4 mb-0 fw-bold">Already have an Account?</p>
+                    <a class="text-primary fw-bold ms-2" href="{{ url('login') }}">Sign In</a>
                   </div>
                 </form>
               </div>

@@ -59,19 +59,19 @@
                           </div>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
+                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
+                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
+                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
+                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
+                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
                         </td>
                       </tr>
                               

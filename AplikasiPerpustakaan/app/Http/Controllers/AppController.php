@@ -14,6 +14,12 @@ class AppController extends Controller
     public function tambah_buku(){
         return view("tambah_buku");
     }
+    public function login(){
+        return view("login");
+    }
+    public function register(){
+        return view("register");
+    }
     public function edit_buku(){
         return view("edit_buku");
     }
