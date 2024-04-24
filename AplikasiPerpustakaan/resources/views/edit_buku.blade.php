@@ -39,7 +39,7 @@
                           <h6 class="fw-semibold mb-0">Stok</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Opsi</h6>
+                          <h6 class="fw-semibold mb-0 text-center">Opsi</h6>
                         </th>
                       </tr>
                     </thead>
@@ -74,14 +74,7 @@
                           <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
-                        </td>
-                        <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
-                        </td>
-                        </td>
-                        <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4"><button type="button" class="btn btn-danger m-1">Danger</button><button type="button" class="btn btn-primary m-1">Edit</button></h6>
+                          <h6 class="fw-semibold mb-0 fs-4"><button type="button" class="btn btn-danger m-1"><i class="fi fi-rs-trash"></i></button><button type="button" class="btn btn-primary m-1"><i class="fi fi-rr-edit"></i></button></h6>
                         </td>
                       </tr>            
                     </tbody>
