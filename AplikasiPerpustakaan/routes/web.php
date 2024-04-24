@@ -20,4 +20,5 @@ Route::get('/', function () {
 
 Route::get('dashboard',[AppController::class,"dashboard"]);
 Route::get('home',[AppController::class,"home"]);
-Route::get('tambah_buku',[AppController::class,"tambah-buku"]);
+Route::get('tambah-buku',[AppController::class,"tambah_buku"]);
+Route::get('edit-buku',[AppController::class,"edit_buku"]);

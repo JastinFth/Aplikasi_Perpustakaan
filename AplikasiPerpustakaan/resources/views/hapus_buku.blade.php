@@ -11,32 +11,32 @@
                   <table class="table text-nowrap mb-0 align-middle">
                     <thead class="text-dark fs-4">
                       <tr>
-                      <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">No.</h6>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Id</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">ISBN</h6>
+                          <h6 class="fw-semibold mb-0">Assigned</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Foto</h6>
+                          <h6 class="fw-semibold mb-0">Name</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Kategori</h6>
+                          <h6 class="fw-semibold mb-0">Priority</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Penulis</h6>
+                          <h6 class="fw-semibold mb-0">Budget</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Penerbit</h6>
+                          <h6 class="fw-semibold mb-0">Budget</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Rak Buku</h6>
+                          <h6 class="fw-semibold mb-0">Budget</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Rekomenasi</h6>
+                          <h6 class="fw-semibold mb-0">Budget</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Stok</h6>
+                          <h6 class="fw-semibold mb-0">Budget</h6>
                         </th>
                         <th class="border-bottom-0">
                           <h6 class="fw-semibold mb-0">Opsi</h6>
@@ -74,14 +74,7 @@
                           <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
-                        </td>
-                        <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
-                        </td>
-                        </td>
-                        <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4"><button type="button" class="btn btn-danger m-1">Danger</button><button type="button" class="btn btn-primary m-1">Edit</button></h6>
+                          <h6 class="fw-semibold mb-0 fs-4"><button type="button" class="btn btn-danger m-1">Hapus</button></h6>
                         </td>
                       </tr>            
                     </tbody>
@@ -90,6 +83,9 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="py-6 px-6 text-center">
+          <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank" class="pe-1 text-primary text-decoration-underline">AdminMart.com</a> Distributed by <a href="https://themewagon.com">ThemeWagon</a></p>
         </div>
       </div>
 @endsection
