@@ -15,7 +15,16 @@ class AppController extends Controller
         return view("home");
     }
     public function tambah_buku(){
-        return view("tambah_buku");
+
+        $categories = Category::get();
+        $bookshelfs = Bookshelf::get();
+        
+
+        $data = ([
+            "categories"=>$categories,
+            "bookshelfs"=>$bookshelfs,
+        ]);
+        return view("tambah_buku",$data);
     }
     public function login(){
         return view("login");

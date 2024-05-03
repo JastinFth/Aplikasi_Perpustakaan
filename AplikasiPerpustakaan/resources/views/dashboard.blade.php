@@ -53,7 +53,13 @@
                             <h6 class="fw-semibold mb-1">{{$book->number_id}}</h6>                        
                         </td>
                         <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal"></p>
+                        <?php
+                        $picture="no_book.jpg";
+                        if ($book->picture != NUll){
+                            $picture =$book->picture;
+                        }
+                        ?>
+                        <img src="{{ url('pictures/'.$picture) }}" alt="photo" width="50">
                         </td>
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-2">
