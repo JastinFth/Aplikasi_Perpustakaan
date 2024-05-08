@@ -15,7 +15,7 @@ class BookSeeder extends Seeder
     {
         //
         $data = ([
-            "number_id" => "12345",
+            "isbn" => "12345",
             "name" => "Herry Potter dan Batu Bertuah",
             "category_id" => 1,
             "author" => "J. K. Rowling",

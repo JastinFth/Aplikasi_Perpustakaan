@@ -13,7 +13,7 @@ class AppController extends Controller
 {
     public function home(){
         
-        $yesData = Book::where('recommendation_id',1)->get();
+        $yesData = Book::where('recommendation_id',1)->inRandomOrder()->limit(6)->get();
 
         return view("home",compact('yesData'));
     }

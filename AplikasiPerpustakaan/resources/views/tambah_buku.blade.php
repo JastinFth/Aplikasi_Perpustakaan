@@ -10,7 +10,7 @@
                 @csrf
                 <div class="mb-3">
                     <label for="nip" class="form-label">ISBN</label>
-                    <input type="text" class="form-control" name="number_id">
+                    <input type="text" class="form-control" name="isbn">
                 </div>
                 <div class="mb-3">
                     <label for="nip" class="form-label">Nama</label>

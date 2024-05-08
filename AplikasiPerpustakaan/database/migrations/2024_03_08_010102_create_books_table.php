@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->string('number_id')->unique();
+            $table->string('isbn')->unique();
             $table->string('picture',255)->nullable();
             $table->string('name',255);
             $table->bigInteger('category_id')->unsigned();
