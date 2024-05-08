@@ -1,12 +1,14 @@
-<link rel="stylesheet" href="{{ url('bootstrap/css/bootstrap.min.css') }}" type="text/css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-<div class="container">
+@extends('template')
+@section('content')
+
+
+
 
     <h1>Tambah Buku</h1>
     <hr>
     <div class="card">
         <div class="card card-body p-3 ">
-            <form action="{{ url('proses-tambah-data') }}" enctype="multipart/form-data" method="post">
+            <form action="{{ url('proses-tambah-buku') }}" enctype="multipart/form-data" method="post">
                 @csrf
                 <div class="mb-3">
                     <label for="nip" class="form-label">ISBN</label>
@@ -39,7 +41,7 @@
                 </div>
                 <div class="mb-3">
                     <label  class="form-label">Rak Buku</label>
-                    <select class="form-select" name="category">
+                    <select class="form-select" name="bookshelf">
                         @foreach($bookshelfs as $row)
                             <option value="{{ $row->id }}">{{ $row->bookshelf }}</option>
                         @endforeach
@@ -47,24 +49,25 @@
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Stok Buku</label>
-                    <input type="number" name="birth_date" class="form-control">
-                </div>
+                    <input type="number" name="stock" class="form-control">
+                </div> 
                 <div class="mb-3">
                     <label for="" class="form-label">Rekomendasi</label>
                     <div class="form-check">
                         <label for="">
-                            <input name="gender" type="radio" class="form-check-input" value="1">
+                            <input name="recommendation" type="radio" class="form-check-input" value="1">
                             Iya
                         </label>
                     </div>
                 </div>
-                <div class="form-check">
-                    <label for="">
-                        <input name="gender" type="radio" class="form-check-input" value="2">
-                        Tidak
-                    </label>
-                </div>
-                <br>
+                    <div class="form-check">
+                        <label for="">
+                            <input name="recommendation" type="radio" class="form-check-input" value="2">
+                            Tidak
+                        </label>
+                    </div>
+    
+                 <br>
                 <div class="mb-3">
                     <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
                 </div>
@@ -72,3 +75,4 @@
         </div>
     </div>
 </div>
+@endsection

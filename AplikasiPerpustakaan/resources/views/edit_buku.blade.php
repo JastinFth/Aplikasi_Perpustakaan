@@ -1,99 +1,82 @@
 @extends('template')
 @section('content')
-      <div class="container-fluid">
-        <!--  Row 1 -->
-        <div class="row">
-          <div class="col-lg-12 d-flex align-items-stretch">
-            <div class="card w-100">
-              <div class="card-body p-4">
-                <h5 class="card-title fw-semibold mb-4">Recent Transactions</h5>
-                <div class="table-responsive">
-                  <table class="table text-nowrap mb-0 align-middle">
-                    <thead class="text-dark fs-4">
-                      <tr>
-                      <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">No.</h6>
-                        </th>
-                        <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">ISBN</h6>
-                        </th>
-                        <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Foto</h6>
-                        </th>
-                        <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Kategori</h6>
-                        </th>
-                        <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Penulis</h6>
-                        </th>
-                        <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Penerbit</h6>
-                        </th>
-                        <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Rak Buku</h6>
-                        </th>
-                        <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Rekomenasi</h6>
-                        </th>
-                        <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Stok</h6>
-                        </th>
-                        <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 text-center">Opsi</h6>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">1</h6></td>
-                        <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">Sunil Joshi</h6>
-                            <span class="fw-normal">Web Designer</span>
-                        </td>
-                        <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">Elite Admin</p>
-                        </td>
-                        <td class="border-bottom-0">
-                          <div class="d-flex align-items-center gap-2">
-                            <span class="badge bg-primary rounded-3 fw-semibold">Low</span>
-                          </div>
-                        </td>
-                        <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
-                        </td>
-                        <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
-                        </td>
-                        <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
-                        </td>
-                        <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
-                        </td>
-                        <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
-                        </td>
-                        <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4"><button type="button" class="btn btn-danger m-1"><i class="fi fi-rs-trash"></i></button><button type="button" class="btn btn-primary m-1"><i class="fi fi-rr-edit"></i></button></h6>
 
-                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
-                        </td>
-                        <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
-                        </td>
-                        </td>
-                        <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4"><button type="button" class="btn btn-danger m-1">Danger</button><button type="button" class="btn btn-primary m-1">Edit</button></h6>
 
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+
+
+    <h1>Tambah Buku</h1>
+    <hr>
+    <div class="card">
+        <div class="card card-body p-3 ">
+            <form action="{{ url('proses-tambah-buku') }}" enctype="multipart/form-data" method="post">
+                @csrf
+                <div class="mb-3">
+                    <label for="nip" class="form-label">ISBN</label>
+                    <input type="text" class="form-control" name="number_id">
                 </div>
-              </div>
-            </div>
-          </div>
+                <div class="mb-3">
+                    <label for="nip" class="form-label">Nama</label>
+                    <input type="text" class="form-control" name="name">
+                </div>
+                <div class="mb-3">
+                    <label class="label-form">Foto</label>
+                    <input type="file" class="form-control" name="picture" required>
+                </div>
+                <div class="mb-3">
+                    <label  class="form-label">Kategori</label>
+                    <select class="form-select" name="category">
+                        @foreach($categories as $row)
+                            <option value="{{ $row->id }}">{{ $row->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Penulis</label>
+                    <input type="text" name="author" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="
+                    publisher" class="form-label">Penerbit </label>
+                    <input type="text" name="publisher" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label  class="form-label">Rak Buku</label>
+                    <select class="form-select" name="bookshelf">
+                        @foreach($bookshelfs as $row)
+                            <option value="{{ $row->id }}">{{ $row->bookshelf }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Stok Buku</label>
+                    <input type="number" name="stock" class="form-control">
+                </div> 
+                <div class="mb-3">
+                    <label for="" class="form-label">Rekomendasi</label>
+                    <div class="form-check">
+                        <label for="">
+                            <input name="recommendation" type="radio" class="form-check-input" value="1">
+                            Iya
+                        </label>
+                    </div>
+                </div>
+                    <div class="form-check">
+                        <label for="">
+                            <input name="recommendation" type="radio" class="form-check-input" value="2">
+                            Tidak
+                        </label>
+                    </div>
+    
+                 <br>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
+                </div>
+
+                </form>
+    
         </div>
-      </div>
+    </div>
+    
+</div>
 @endsection
 
