@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\models\Book;
+use App\Models\Bookshelf;
+use App\Models\Category;
+use App\Models\Recommendation;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -9,10 +12,22 @@ use Illuminate\Http\Request;
 class AppController extends Controller
 {
     public function home(){
-        return view("home");
+        
+        $yesData = Book::where('recommendation_id',1)->get();
+
+        return view("home",compact('yesData'));
     }
     public function tambah_buku(){
-        return view("tambah_buku");
+
+        $categories = Category::get();
+        $bookshelfs = Bookshelf::get();
+        
+
+        $data = ([
+            "categories"=>$categories,
+            "bookshelfs"=>$bookshelfs,
+        ]);
+        return view("tambah_buku",$data);
     }
     public function login(){
         return view("login");
@@ -23,14 +38,23 @@ class AppController extends Controller
     public function edit_buku(){
         return view("edit_buku");
     }
+
     public function dashboard(Request $request){
         $books = Book::get();
+        $recomendations = Recommendation::get();
+        $categories = Category::get();
+        $bookshelfs = Bookshelf::get();
 
         $data = ([
             'books' => $books,
-        ]);
-        return view("dashboard",$data);
-    }
+            'recommendations' => $recomendations,
+            'categories' => $categories,
+            'bookshelfs' => $bookshelfs,
 
-}
+        ]);
+
+        return view("dashboard",$data) ;
+    }
+}  
+
 

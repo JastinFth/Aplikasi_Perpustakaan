@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('recommendations', function (Blueprint $table) {
             $table->id();
-            $table->string("yes/no",255);
+            $table->string("yes_no",255);
         });
     }
 
