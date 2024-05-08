@@ -59,33 +59,22 @@
                           </div>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
+                          <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
+                          <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
+                          <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
+                          <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
+                          <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
                         </td>
                         <td class="border-bottom-0">
-<<<<<<< HEAD
                           <h6 class="fw-semibold mb-0 fs-4"><button type="button" class="btn btn-danger m-1"><i class="fi fi-rs-trash"></i></button><button type="button" class="btn btn-primary m-1"><i class="fi fi-rr-edit"></i></button></h6>
-=======
-                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
-                        </td>
-                        <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">--</h6>
-                        </td>
-                        </td>
-                        <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4"><button type="button" class="btn btn-danger m-1">Danger</button><button type="button" class="btn btn-primary m-1">Edit</button></h6>
->>>>>>> 238d908c8daba534ba0a0136bfdc7f33dddefb5c
                         </td>
                       </tr>            
                     </tbody>

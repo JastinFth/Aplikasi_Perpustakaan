@@ -1,6 +1,8 @@
-<link rel="stylesheet" href="{{ url('bootstrap/css/bootstrap.min.css') }}" type="text/css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-<div class="container">
+@extends('template')
+@section('content')
+
+
+
 
     <h1>Tambah Buku</h1>
     <hr>
@@ -99,3 +101,4 @@
     </div>
     
 </div>
+@endsection
