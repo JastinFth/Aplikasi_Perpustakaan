@@ -12,7 +12,10 @@ use Illuminate\Http\Request;
 class AppController extends Controller
 {
     public function home(){
-        return view("home");
+        
+        $yesData = Book::where('recommendation_id',1)->get();
+
+        return view("home",compact('yesData'));
     }
     public function tambah_buku(){
 

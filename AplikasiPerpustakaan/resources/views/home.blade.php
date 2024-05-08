@@ -76,40 +76,22 @@
         }
        
     </style>
-
         <div class="card m-2 p-2 align-items-center   shadow wrbg">
             <h2 class="m-2 p-1"><b>BUKU REKOMENDASI</b></h2>
             <div class="wrapper m-2"> 
+                @foreach($yesData as $book)
                 <div class="item align-items-center    p-1 m-1 card shadow">
-                    <img src="{{ url("image/buku1.jpeg") }}" width="85px" height="100px" >
-                     <p class="">nama</p>
-                     <p class=" ">nama</p>
+                    <?php
+                    $picture="no_book.jpg";
+                    if ($book->picture != NUll){
+                        $picture =$book->picture;
+                    }
+                    ?>
+                    <img src="{{ url('pictures/'.$picture) }}" alt="photo" width="130">
+                    <p class="">{{$book->name}}</p>
+                    <p class="">{{$book->bookshelf->bookshelf}}</p>
                 </div>
-                <div class="item align-items-center    p-1 m-1 card shadow">
-                    <img src="{{ url("image/buku2.jpg") }}" width="85px" height="100px" >
-                     <p class="">nama</p>
-                     <p class=" ">nama</p>
-                </div>
-                <div class="item align-items-center    p-1 m-1 card shadow">
-                    <img src="{{ url("image/buku3.jpeg") }}" width="85px" height="100px" >
-                     <p class="">nama</p>
-                     <p class=" ">nama</p>
-                </div>
-                <div class="item align-items-center    p-1 m-1 card shadow">
-                    <img src="{{ url("image/buku4.jpeg") }}" width="85px" height="100px" >
-                     <p class="">nama</p>
-                     <p class=" ">nama</p>
-                </div>
-                <div class="item align-items-center    p-1 m-1 card shadow">
-                    <img src="{{ url("image/buku5.jpeg") }}" width="85px" height="100px" >
-                     <p class="">nama</p>
-                     <p class=" ">nama</p>
-                </div>
-                <div class="item align-items-center    p-1 m-1 card shadow">
-                    <img src="{{ url("image/buku6.jpeg") }}" width="85px" height="100px" >
-                     <p class="">nama</p>
-                     <p class=" ">nama</p>
-                </div>
+                @endforeach
             </div> 
         </div>
         
