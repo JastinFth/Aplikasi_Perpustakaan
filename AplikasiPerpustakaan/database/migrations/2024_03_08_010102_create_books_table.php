@@ -23,8 +23,8 @@ return new class extends Migration
             $table->bigInteger('bookshelf_id')->unsigned();
             $table->bigInteger('recommendation_id')->unsigned();
             $table->integer('stock');
-            
-            
+
+
         });
     }
 

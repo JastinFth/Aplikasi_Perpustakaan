@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class AppController extends Controller
 {
     public function home(){
-        
+
         $yesData = Book::where('recommendation_id',1)->inRandomOrder()->limit(6)->get();
 
         return view("home",compact('yesData'));
@@ -21,7 +21,7 @@ class AppController extends Controller
 
         $categories = Category::get();
         $bookshelfs = Bookshelf::get();
-        
+
 
         $data = ([
             "categories"=>$categories,
@@ -55,6 +55,6 @@ class AppController extends Controller
 
         return view("dashboard",$data) ;
     }
-}  
+}
 
 

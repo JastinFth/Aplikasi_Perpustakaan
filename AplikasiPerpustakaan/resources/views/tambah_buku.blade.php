@@ -48,7 +48,7 @@
                 <div class="mb-3">
                     <label for="" class="form-label">Stok Buku</label>
                     <input type="number" name="birth_date" class="form-control">
-                </div> 
+                </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Rekomendasi</label>
                     <div class="form-check">
@@ -58,21 +58,17 @@
                         </label>
                     </div>
                 </div>
-                    <div class="form-check">
-                        <label for="">
-                            <input name="gender" type="radio" class="form-check-input" value="2">
-                            Tidak
-                        </label>
-                    </div>
-    
-                 <br>
+                <div class="form-check">
+                    <label for="">
+                        <input name="gender" type="radio" class="form-check-input" value="2">
+                        Tidak
+                    </label>
+                </div>
+                <br>
                 <div class="mb-3">
                     <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
                 </div>
-
-                </form>
-    
+            </form>
         </div>
     </div>
-    
 </div>

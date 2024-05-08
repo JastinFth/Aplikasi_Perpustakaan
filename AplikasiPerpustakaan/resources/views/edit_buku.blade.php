@@ -48,7 +48,7 @@
                         <td class="border-bottom-0"><h6 class="fw-semibold mb-0">1</h6></td>
                         <td class="border-bottom-0">
                             <h6 class="fw-semibold mb-1">Sunil Joshi</h6>
-                            <span class="fw-normal">Web Designer</span>                          
+                            <span class="fw-normal">Web Designer</span>
                         </td>
                         <td class="border-bottom-0">
                           <p class="mb-0 fw-normal">Elite Admin</p>
@@ -74,9 +74,8 @@
                           <h6 class="fw-semibold mb-0 fs-4">--</h6>
                         </td>
                         <td class="border-bottom-0">
-<<<<<<< HEAD
                           <h6 class="fw-semibold mb-0 fs-4"><button type="button" class="btn btn-danger m-1"><i class="fi fi-rs-trash"></i></button><button type="button" class="btn btn-primary m-1"><i class="fi fi-rr-edit"></i></button></h6>
-=======
+
                           <h6 class="fw-semibold mb-0 fs-4">--</h6>
                         </td>
                         <td class="border-bottom-0">
@@ -85,9 +84,9 @@
                         </td>
                         <td class="border-bottom-0">
                           <h6 class="fw-semibold mb-0 fs-4"><button type="button" class="btn btn-danger m-1">Danger</button><button type="button" class="btn btn-primary m-1">Edit</button></h6>
->>>>>>> 238d908c8daba534ba0a0136bfdc7f33dddefb5c
+
                         </td>
-                      </tr>            
+                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -97,3 +96,4 @@
         </div>
       </div>
 @endsection
+
