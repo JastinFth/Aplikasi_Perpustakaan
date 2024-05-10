@@ -84,74 +84,59 @@
       
     </style>
 
-        <div class="card m-1 p-1 align-items-center   shadow wrbg">
-            <h2 class="m-2 p-1"><b>BUKU REKOMENDASI</b></h2>
-            <div class="wrapper m-2"> 
-
-                <a style="width:9rem;" class="    card-img-top  m-3 ps-3 pe-auto pt-1 decoration  shadow " href="https://www.youtube.com/">
-                    <img src="{{ url("image/buku1.jpeg") }}" style="width:113px;"  class="   ">
-                     <p >nama</p>
-                     <p >nama</p>
-                </a>
-                <a style="width:9rem;" class="    card-img-top  m-3 ps-3 pe-auto pt-1 decoration  shadow " href="https://www.youtube.com/">
-                    <img src="{{ url("image/buku1.jpeg") }}" style="width:113px;"  class="   ">
-                     <p >nama</p>
-                     <p >nama</p>
-                </a>
-                <a style="width:9rem;" class="    card-img-top  m-3 ps-3 pe-auto pt-1 decoration  shadow " href="https://www.youtube.com/">
-                    <img src="{{ url("image/buku1.jpeg") }}" style="width:113px;"  class="   ">
-                     <p >nama</p>
-                     <p >nama</p>
-                </a>
-                <a style="width:9rem;" class="    card-img-top  m-3 ps-3 pe-auto pt-1 decoration  shadow " href="https://www.youtube.com/">
-                    <img src="{{ url("image/buku1.jpeg") }}" style="width:113px;"  class="   ">
-                     <p >nama</p>
-                     <p >nama</p>
-                </a>
-                <a style="width:9rem;" class="    card-img-top  m-3 ps-3 pe-auto pt-1 decoration  shadow " href="https://www.youtube.com/">
-                    <img src="{{ url("image/buku1.jpeg") }}" style="width:113px;"  class="   ">
-                     <p >nama</p>
-                     <p >nama</p>
-                </a>
-         
-                <a style="width:9rem;" class="    card-img-top  m-3 ps-3 pe-auto pt-1 decoration  shadow " href="https://www.youtube.com/">
-                    <img src="{{ url("image/buku1.jpeg") }}" style="width:113px;"  class="   ">
-                     <p >nama</p>
-                     <p >nama</p>
-                </a>
-         
-               
-                
-                 
-            </div> 
-        </div>
+<div class="card m-1 p-1 align-items-center   shadow wrbg">
+    <h2 class="m-2 p-1"><b>BUKU REKOMENDASI</b></h2>
+    <div class="wrapper m-2"> 
         
+        @foreach($yesData as $book) 
+        <a style="width:9rem;" class="    card-img-top  m-3 ps-3 pe-auto pt-1 decoration  shadow " href="https://www.youtube.com/">
+                     
+                         <?php
+                         $picture="no_book.jpg";
+                         if ($book->picture != NUll){
+                             $picture =$book->picture;
+                         }
+                         ?>
+                         <img src="{{ url('pictures/'.$picture) }}" alt="photo" width="113px" height="160px">
+                         <p class="">{{$book->name}}</p>
+                         <p class="">{{$book->bookshelf->bookshelf}}</p>
+                   
+                        </a> 
+                        @endforeach
+                    </div> 
+                </div>
 
-        <div class="card m-2 p-2 align-items-center   shadow wrbg">
-            <h2 class="m-2 ms-4 p-1"><b>RAK BUKU</b></h2>
+
+
+
+        <div class="card m-1 p-1 align-items-center   shadow wrbg">
+            
             <div class="wrapper m-2"> 
-                
-                <div class="card" width="100">
-                    <div class="card-body">     <ol type="1">
-                        foreach $divisions as $division)
-                        <li>
-                            $division->name }}
-                        </li>
-                        <ol type="a">
-                            foreach $division->employees as $employee)
-                            <li>
-                                employee->name }}
-                            </li>
-                            endforeach
-                    </ol>
+
+                <div class="card m-2 p-2 align-items-center   shadow wrbg">
+                    <h2 class="m-2 ms-4 p-1"><b>RAK BUKU</b></h2>
+                    <div class="wrapper m-2"> 
+                        
+                        <div class="card" width="100">
+                            <div class="card-body">     <ol type="1">
+                                foreach $bookshelfs as $bookshelf)
+                                <li>
+                                    $bookshelf->name }}
+                                </li>
+                                <ol type="a">
+                                    foreach ($bookshelf->books as $book)
+                                    <li>
+                                        $book->name }}
+                                    </li> 
+                            </ol>
+                                endforeach
+                        </ol>
                         endforeach
-                </ol>
-            </div>
-                    <div class="card-body">Rak B</div>
-               
-                </div> 
-            </div> 
-        </div>  
+                    </div>
+                             
+                        </div> 
+                    </div> 
+                </div>  
         </div> 
     </div>
     </div>

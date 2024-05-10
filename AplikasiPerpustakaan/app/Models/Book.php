@@ -13,15 +13,15 @@ class Book extends Model
     protected $premarykey = "id";
     protected $guarded = ['id'];
 
-    function categories() {
+    function category() {
         return $this->belongsTo(Category::class,"category_id","id");
     }
 
-    function recommedation() {
+    function recommendation() {
         return $this->belongsTo(Recommendation::class,"recommendation_id","id");
     }
     
-    function books() {
+    function bookshelf() {
         return $this->belongsTo(Bookshelf::class,"bookshelf_id","id");
     }
 }

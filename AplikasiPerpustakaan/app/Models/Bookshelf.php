@@ -13,7 +13,7 @@ class Bookshelf extends Model
     protected $premarykey = "id";
     protected $guarded = ['id'];
 
-    function books(){
+    public function books(){
         return $this->hasMany(Book::class,"bookshelf_id","id");
     }
 }

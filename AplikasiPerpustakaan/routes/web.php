@@ -19,9 +19,12 @@ Route::get('/', function () {
 });
 
 Route::get('dashboard',[AppController::class,"dashboard"]);
-Route::get('home',[AppController::class,"home"]);
 Route::get('login',[AppController::class,"login"]);
-Route::get('home',[AppController::class,"home"]);
+Route::get('/',[AppController::class,"home"]);
 Route::get('register',[AppController::class,"register"]);
 Route::get('tambah-buku',[AppController::class,"tambah_buku"]);
-Route::get('edit-buku',[AppController::class,"edit_buku"]);
+Route::post('proses-tambah-buku',[AppController::class,"proses_tambah_buku"]);
+Route::get('data/{id}/hapus',[AppController::class,"proses_hapus_buku"]);
+Route::get('kelola',[AppController::class,"kelola"]);
+Route::get('kelola/{id}/edit',[AppController::class,"edit_buku"]);
+Route::post('proses-edit-buku',[AppController::class,"proses_edit_buku"]);
