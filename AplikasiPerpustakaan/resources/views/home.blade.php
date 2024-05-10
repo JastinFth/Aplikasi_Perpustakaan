@@ -24,7 +24,7 @@
             }
          </style>
         <div class="bgg text-white showcase-img"  >
-            <nav class="navbar navbar-light bg-light sticky-top  opacity-75">
+            <nav class="navbar navbar-dark bg-dark sticky-top  opacity-75">
                 <div class="container">
                     <a class="navbar-brand  nip" href="#!" id="judul">JasaHurrayy</a>
                     <div class="m-2">
@@ -56,7 +56,7 @@
     </div>
 
     <div class="bgs "  >
-    <div class="container mt-3 align-items-center justify-content-center ">
+    <div class="container-fluid mt-3 align-items-center justify-content-center ">
         <div class="row">
             
     <style>
@@ -65,74 +65,78 @@
             flex-wrap: wrap; 
             gap: 12px;
         }
-        .item{
-            background-color: rgb(219, 230, 235);
-            width: 150px;
-            height: 200px;
-            border-radius: 10px
-        }
-        .wrbg{
-            background-color:rgb(88, 220, 249); 
-        }
        
+        .wrbg{
+            background-color:#f1f1f1; 
+        }
+
+        .decoration{
+            text-decoration: none; 
+            color: inherit;
+        }
+        .decoration:hover{
+            text-decoration: none; 
+            color: inherit;
+             background-color: #5558ef82;
+             transition: 0.8s;
+        }
+
+      
     </style>
-        <div class="card m-2 p-2 align-items-center   shadow wrbg">
-            <h2 class="m-2 p-1"><b>BUKU REKOMENDASI</b></h2>
-            <div class="wrapper m-2"> 
-                @foreach($yesData as $book)
-                <div class="item align-items-center    p-1 m-1 card shadow">
-                    <?php
-                    $picture="no_book.jpg";
-                    if ($book->picture != NUll){
-                        $picture =$book->picture;
-                    }
-                    ?>
-                    <img src="{{ url('pictures/'.$picture) }}" alt="photo" width="130">
-                    <p class="">{{$book->name}}</p>
-                    <p class="">{{$book->bookshelf->bookshelf}}</p>
-                </div>
-                @endforeach
-            </div> 
-        </div>
-        
 
-        <div class="card m-2 p-2 align-items-center   shadow wrbg">
-            <h2 class="m-2 ms-4 p-1"><b>BUKU YANG SEDANG POPULER</b></h2>
-            <div class="wrapper m-2"> 
-                <div class="item align-items-center    p-1 m-1 card shadow">
-                    <img src="{{ url("image/buku1.jpeg") }}" width="85px" height="100px" >
-                     <p class="">nama</p>
-                     <p class=" ">nama</p>
-                </div>
-                <div class="item align-items-center    p-1 m-1 card shadow">
-                    <img src="{{ url("image/buku2.jpg") }}" width="85px" height="100px" >
-                     <p class="">nama</p>
-                     <p class=" ">nama</p>
-                </div>
-                <div class="item align-items-center    p-1 m-1 card shadow">
-                    <img src="{{ url("image/buku3.jpeg") }}" width="85px" height="100px" >
-                     <p class="">nama</p>
-                     <p class=" ">nama</p>
-                </div>
-                <div class="item align-items-center    p-1 m-1 card shadow">
-                    <img src="{{ url("image/buku4.jpeg") }}" width="85px" height="100px" >
-                     <p class="">nama</p>
-                     <p class=" ">nama</p>
-                </div>
-                <div class="item align-items-center    p-1 m-1 card shadow">
-                    <img src="{{ url("image/buku5.jpeg") }}" width="85px" height="100px" >
-                     <p class="">nama</p>
-                     <p class=" ">nama</p>
-                </div>
-                <div class="item align-items-center    p-1 m-1 card shadow">
-                    <img src="{{ url("image/buku6.jpeg") }}" width="85px" height="100px" >
-                     <p class="">nama</p>
-                     <p class=" ">nama</p>
-                </div>
-            </div> 
-        </div>
+<div class="card m-1 p-1 align-items-center   shadow wrbg">
+    <h2 class="m-2 p-1"><b>BUKU REKOMENDASI</b></h2>
+    <div class="wrapper m-2"> 
         
+        @foreach($yesData as $book) 
+        <a style="width:9rem;" class="    card-img-top  m-3 ps-3 pe-auto pt-1 decoration  shadow " href="https://www.youtube.com/">
+                     
+                         <?php
+                         $picture="no_book.jpg";
+                         if ($book->picture != NUll){
+                             $picture =$book->picture;
+                         }
+                         ?>
+                         <img src="{{ url('pictures/'.$picture) }}" alt="photo" width="113px" height="160px">
+                         <p class="">{{$book->name}}</p>
+                         <p class="">{{$book->bookshelf->bookshelf}}</p>
+                   
+                        </a> 
+                        @endforeach
+                    </div> 
+                </div>
 
+
+
+
+        <div class="card m-1 p-1 align-items-center   shadow wrbg">
+            
+            <div class="wrapper m-2"> 
+
+                <div class="card m-2 p-2 align-items-center   shadow wrbg">
+                    <h2 class="m-2 ms-4 p-1"><b>RAK BUKU</b></h2>
+                    <div class="wrapper m-2"> 
+                        
+                        <div class="card" width="100">
+                            <div class="card-body">     <ol type="1">
+                                foreach $bookshelfs as $bookshelf)
+                                <li>
+                                    $bookshelf->name }}
+                                </li>
+                                <ol type="a">
+                                    foreach ($bookshelf->books as $book)
+                                    <li>
+                                        $book->name }}
+                                    </li> 
+                            </ol>
+                                endforeach
+                        </ol>
+                        endforeach
+                    </div>
+                             
+                        </div> 
+                    </div> 
+                </div>  
         </div> 
     </div>
     </div>
