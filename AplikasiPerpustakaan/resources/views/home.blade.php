@@ -26,7 +26,7 @@
         <div class="bgg text-white showcase-img"  >
             <nav class="navbar navbar-dark bg-dark sticky-top  opacity-75">
                 <div class="container">
-                    <a class="navbar-brand  nip" href="#!" id="judul">JasaHurrayy</a>
+                    <a class="navbar-brand  nip" href="#!" id="judul">IrsyadPedia</a>
                     <div class="m-2">
                         <a class="btn btn-primary m-2 p-2 opacity-75 hop"id="judul" href="{{ url('register') }}">Sign Up</a>
                     <a class="btn btn-primary m-2 p-2 opacity-75 hop"id="judul" href="{{ url('login') }}">Sign In</a>

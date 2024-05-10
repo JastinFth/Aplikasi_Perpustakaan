@@ -17,14 +17,8 @@
     data-sidebar-position="fixed" data-header-position="fixed">
     <!-- Sidebar Start -->
     <aside class="left-sidebar">
-      <!-- Sidebar scroll--><h1 class="text-center pt-3 pb-2 ">JasaHurray</h1><hr>
+      <!-- Sidebar scroll--><h1 class="text-center pt-3 pb-2 ">IrsyadPedia</h1><hr>
       <div>
-        <div class="brand-logo d-flex align-items-center justify-content-between">
-           
-          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
-            <i class="ti ti-x fs-8"></i>
-          </div>
-        </div>
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
             
