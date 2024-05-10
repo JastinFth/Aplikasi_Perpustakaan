@@ -117,24 +117,18 @@
                     <h2 class="m-2 ms-4 p-1"><b>RAK BUKU</b></h2>
                     <div class="wrapper m-2"> 
                         
+                        @foreach ($bookshelfs as $bookshelf)
                         <div class="card" width="100">
-                            <div class="card-body">     <ol type="1">
-                                foreach $bookshelfs as $bookshelf)
-                                <li>
-                                    $bookshelf->name }}
-                                </li>
-                                <ol type="a">
-                                    foreach ($bookshelf->books as $book)
-                                    <li>
-                                        $book->name }}
-                                    </li> 
-                            </ol>
-                                endforeach
-                        </ol>
-                        endforeach
-                    </div>
-                             
+                            <div class="card-body">     
+                                    <p>{{ $bookshelf->bookshelf }}</p>
+                                    <ol type="1">
+                                        @foreach ($bookshelf->books as $book)
+                                        <li>{{ $book->name }}</li> 
+                                        @endforeach
+                                    </ol>
+                            </div>    
                         </div> 
+                        @endforeach
                     </div> 
                 </div>  
         </div> 

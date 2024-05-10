@@ -14,8 +14,16 @@ class AppController extends Controller
     public function home(){
         
         $yesData = Book::where('recommendation_id',1)->inRandomOrder()->limit(6)->get();
+        $books = Book::get();
+        $bookshelfs = Bookshelf::get();
 
-        return view("home",compact('yesData'));
+        $data = ([
+            'books' => $books,
+            'bookshelfs' => $bookshelfs,
+        ]);
+
+
+        return view("home",compact('yesData'),$data);
     }
     public function tambah_buku(){
 
