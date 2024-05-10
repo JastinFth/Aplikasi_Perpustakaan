@@ -17,7 +17,7 @@
     data-sidebar-position="fixed" data-header-position="fixed">
     <!-- Sidebar Start -->
     <aside class="left-sidebar">
-      <!-- Sidebar scroll--><h1 class="text-center pt-3 pb-2 ">JasaHurray</h1><hr>
+      <!-- Sidebar scroll--><h1 class="text-center pt-3 pb-2 "><a href="{{ url('dashboard') }}" style="text-decoration: none;">Perisyad</a> </h1><hr>
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
            
