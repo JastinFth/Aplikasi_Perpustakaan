@@ -17,14 +17,9 @@
     data-sidebar-position="fixed" data-header-position="fixed">
     <!-- Sidebar Start -->
     <aside class="left-sidebar">
-      <!-- Sidebar scroll--><h1 class="text-center pt-3 pb-2 "><a href="{{ url('dashboard') }}" style="text-decoration: none;">Perisyad</a> </h1><hr>
+      <!-- Sidebar scroll--><h1 class="text-center pt-3 pb-2 "><a href="{{ url('dashboard') }}" style="text-decoration: none;">IrsyadPedia</a> </h1><hr>
+     
       <div>
-        <div class="brand-logo d-flex align-items-center justify-content-between">
-           
-          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
-            <i class="ti ti-x fs-8"></i>
-          </div>
-        </div>
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
             
@@ -132,7 +127,7 @@
                       <i class="ti ti-list-check fs-6"></i>
                       <p class="mb-0 fs-3">My Task</p>
                     </a>
-                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                    <a href="{{ url('logout') }}" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                   </div>
                 </div>
               </li>

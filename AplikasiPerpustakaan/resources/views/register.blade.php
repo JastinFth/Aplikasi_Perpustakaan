@@ -20,17 +20,18 @@
             <div class="card mb-0">
               <div class="card-body"> 
                  <h2 class="text-center">REGISTER</h2>
-                <form>
+                <form action="{{ url('proses-register') }}" method="POST">
+                  @csrf
                   <div class="mb-3">
-                    <label for="exampleInputtext1" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" name='email' value="{{ old('email') }}" id="email" aria-describedby="textHelp">
                   </div>
                   
                   <div class="mb-4">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" id="password">
                   </div>
-                  <a href="./index.html" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign Up</a>
+                  <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" >Daftar</button>
                   <div class="d-flex align-items-center justify-content-center">
                     <p class="fs-4 mb-0 fw-bold">Already have an Account?</p>
                     <a class="text-primary fw-bold ms-2" href="{{ url('login') }}">Sign In</a>
@@ -45,6 +46,29 @@
   </div>
   <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  @if ($message =Session::get("failed"))
+    <script>
+      Swal.fire({
+  icon: "error",
+  title: "Oops...ERROR :v",
+  text: "{{ $message }}",
+  footer: '<a href="#">Kenapa Saya Mengalami Hal Ini???</a>'
+});
+    </script>
+  @endif
+  @if ($message =Session::get("logoutmsg"))
+    <script>
+      Swal.fire({
+  position: "top-end",
+  icon: "success",
+  title: "{{ $message }}",
+  showConfirmButton: false,
+  timer:2000
+});
+  
+    </script>
+  @endif
 </body>
 
 </html>

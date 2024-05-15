@@ -20,14 +20,21 @@
             <div class="card mb-0">
               <div class="card-body">
                 <h2 class="text-center">LOGIN</h2>
-                <form>
+                <form action="{{ url('proses-login') }}" method="POST">
+                  @csrf
                   <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Username</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="email" name="email">
+                    @error('email')
+                      <small style="color: red;">{{ $message }}</small>
+                    @enderror
                   </div>
                   <div class="mb-4">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password"  placeholder="Password">
+                    @error('password')
+                      <small style="color: red;">{{ $message }}</small>
+                    @enderror
                   </div>
                   <div class="d-flex align-items-center justify-content-between mb-4">
                     <div class="form-check">
@@ -36,11 +43,11 @@
                         Remeber this Device
                       </label>
                     </div>
-                    <a class="text-primary fw-bold" href="./index.html">Forgot Password ?</a>
+                    <a class="text-primary fw-bold" href="#">Forgot Password ?</a>
                   </div>
-                  <a href="./index.html" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign In</a>
+                  <button class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" type="submit">Login</button>
                   <div class="d-flex align-items-center justify-content-center">
-                    <p class="fs-4 mb-0 fw-bold">New to JasaHurray?</p>
+                    <p class="fs-4 mb-0 fw-bold">New to Perisyad?</p>
                     <a class="text-primary fw-bold ms-2" href="{{ url('register') }}">Create an account</a>
                   </div>
                 </form>
@@ -53,6 +60,29 @@
   </div>
   <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  @if ($message =Session::get("failed"))
+    <script>
+      Swal.fire({
+  icon: "error",
+  title: "Oops...ERROR :v",
+  text: "{{ $message }}",
+  footer: '<a href="#">Kenapa Saya Mengalami Hal Ini???</a>'
+});
+    </script>
+  @endif
+  @if ($message =Session::get("logoutmsg"))
+    <script>
+      Swal.fire({
+  position: "top-center",
+  icon: "success",
+  title: "{{ $message }}",
+  showConfirmButton: false,
+  timer:2000
+});
+  
+    </script>
+  @endif
 </body>
 
 </html>

@@ -26,7 +26,7 @@
         <div class="bgg text-white showcase-img"  >
             <nav class="navbar navbar-dark bg-dark sticky-top  opacity-75">
                 <div class="container">
-                    <a class="navbar-brand  nip" href="{{ url('/') }}" id="judul">Perisyad</a>
+                    <a class="navbar-brand  nip" href="{{ url('/') }}" id="judul">IrsyadPedia</a> 
                     <div class="m-2">
                         <a class="btn btn-primary m-2 p-2 opacity-75 hop"id="judul" href="{{ url('register') }}">Register</a>
                     <a class="btn btn-primary m-2 p-2 opacity-75 hop"id="judul" href="{{ url('login') }}">Login</a>
@@ -117,24 +117,18 @@
                     <h2 class="m-2 ms-4 p-1"><b>RAK BUKU</b></h2>
                     <div class="wrapper m-2"> 
                         
+                        @foreach ($bookshelfs as $bookshelf)
                         <div class="card" width="100">
-                            <div class="card-body">     <ol type="1">
-                                foreach $bookshelfs as $bookshelf)
-                                <li>
-                                    $bookshelf->name }}
-                                </li>
-                                <ol type="a">
-                                    foreach ($bookshelf->books as $book)
-                                    <li>
-                                        $book->name }}
-                                    </li> 
-                            </ol>
-                                endforeach
-                        </ol>
-                        endforeach
-                    </div>
-                             
+                            <div class="card-body">     
+                                    <p>{{ $bookshelf->bookshelf }}</p>
+                                    <ol type="1">
+                                        @foreach ($bookshelf->books as $book)
+                                        <li>{{ $book->name }}</li> 
+                                        @endforeach
+                                    </ol>
+                            </div>    
                         </div> 
+                        @endforeach
                     </div> 
                 </div>  
         </div> 

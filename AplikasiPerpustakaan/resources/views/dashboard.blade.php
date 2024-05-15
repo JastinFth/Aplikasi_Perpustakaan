@@ -50,7 +50,7 @@
                       <tr>
                       <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $no }}</h6></td>
                         <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">{{$book->number_id}}</h6>                        
+                            <h6 class="fw-semibold mb-1">{{$book->isbn}}</h6>                        
                         </td>
                         <td class="border-bottom-0">
                         <?php
