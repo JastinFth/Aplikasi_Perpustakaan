@@ -11,8 +11,8 @@ use Illuminate\Http\Request;
 
 class AppController extends Controller
 {
-    public function home(){
-        
+    public function home(Request $request)
+    {
         $yesData = Book::where('recommendation_id',1)->inRandomOrder()->limit(6)->get();
         $books = Book::get();
         $bookshelfs = Bookshelf::get();
@@ -21,7 +21,6 @@ class AppController extends Controller
             'books' => $books,
             'bookshelfs' => $bookshelfs,
         ]);
-
 
         return view("home",compact('yesData'),$data);
     }
@@ -150,6 +149,27 @@ class AppController extends Controller
 
         return redirect("data/".$request->id."/edit");
     }
-}  
 
+    public function pencarian(Request $request)
+    {
+
+        $q = $request->input('q');
+
+        $books = Book::get();
+        $bookshelfs = Bookshelf::get();
+
+        if (!empty($q)) {
+            $books = Book::where('name', 'LIKE', "%$q%")->get();
+        }
+
+        $data = ([
+            'books'         => $books,
+            'bookshelfs'    => $bookshelfs,
+            'q'             => $q,
+        ]);
+
+        return view('hasil_buku',$data);
+
+    }
+}
 
