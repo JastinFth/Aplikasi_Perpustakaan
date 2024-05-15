@@ -115,8 +115,15 @@ class AppController extends Controller
     }
     public function proses_edit_buku(Request $request){
         $books = Book::find($request->id);
+    
+        // Pastikan buku ditemukan sebelum melanjutkan proses
+        if(!$books){
+            abort(404);
+        }
+    
         $number_id = $request->number_id;
-
+    
+        // Lakukan proses pengeditan buku
         $books->number_id = $number_id;
         $books->category_id = $request->category;
         $books->recommendation_id = $request->recommendation;
@@ -126,19 +133,21 @@ class AppController extends Controller
         $books->publisher = $request->publisher;
         $books->stock = $request->stock;
         $books->stock = $request->stock;
-
-    //    if($request->hasFile("picture")){
-    //         $picture = $request->file("picture");
-    //         $pictureName = $number_id.".".Str::random(25).".".$picture->getClientOriginalExtension();
-    //         $picture->move("./pictures/",$pictureName);
-
-    //         $books->picture = $pictureName;
-    //     }
-
+    
+        // Jika ada file gambar yang diunggah, lakukan pemrosesan
+        if($request->hasFile("picture")){
+             $picture = $request->file("picture");
+             $pictureName = $number_id.".".Str::random(25).".".$picture->getClientOriginalExtension();
+             $picture->move("./pictures/",$pictureName);
+    
+             $books->picture = $pictureName;
+        }
+    
+        // Simpan perubahan
         $books->save();
-
+    
         session()->flash('message', 'Data berhasil disimpan');
-
+    
         return redirect("data/".$request->id."/edit");
     }
 }  

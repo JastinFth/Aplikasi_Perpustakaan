@@ -4,15 +4,16 @@
 
 
 
-    <h1>Tambah Buku</h1>
+    <h1>Edit Buku</h1>
     <hr>
     <div class="card">
         <div class="card card-body p-3 ">
-            <form action="{{ url('proses-tambah-buku') }}" enctype="multipart/form-data" method="post">
+            <form action="{{ url('proses-edit-buku') }}" enctype="multipart/form-data" method="post">
                 @csrf
+                
                 <div class="mb-3">
                     <label for="nip" class="form-label">ISBN</label>
-                    <input type="text" class="form-control" name="number_id">
+                    <input type="text" class="form-control" name="number_id" readonly>
                 </div>
                 <div class="mb-3">
                     <label for="nip" class="form-label">Nama</label>
