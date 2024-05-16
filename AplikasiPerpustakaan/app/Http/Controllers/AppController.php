@@ -7,12 +7,12 @@ use App\Models\Category;
 use App\Models\Recommendation;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-
+use PDF;
 
 class AppController extends Controller
 {
-    public function home(){
-        
+    public function home(Request $request)
+    {
         $yesData = Book::where('recommendation_id',1)->inRandomOrder()->limit(6)->get();
         $books = Book::get();
         $bookshelfs = Bookshelf::get();
@@ -22,10 +22,10 @@ class AppController extends Controller
             'bookshelfs' => $bookshelfs,
         ]);
 
-
         return view("home",compact('yesData'),$data);
     }
-    public function tambah_buku(){
+    public function tambah_buku()
+    {
 
         $categories = Category::get();
         $bookshelfs = Bookshelf::get();
@@ -43,7 +43,8 @@ class AppController extends Controller
     public function register(){
         return view("register");
     }
-    public function kelola(){
+    public function kelola()
+    {
         $books = Book::get();
         $recomendations = Recommendation::get();
         $categories = Category::get();
@@ -59,7 +60,8 @@ class AppController extends Controller
         return view("kelola",$data);
     }
 
-    public function dashboard(Request $request){
+    public function dashboard(Request $request)
+    {
         $books = Book::get();
         $recomendations = Recommendation::get();
         $categories = Category::get();
@@ -75,7 +77,8 @@ class AppController extends Controller
 
         return view("dashboard",$data) ;
     }
-    public function proses_tambah_buku(Request $request){
+    public function proses_tambah_buku(Request $request)
+    {
         $isbn = $request->isbn;
 
         $picture = $request->file("picture");
@@ -96,7 +99,8 @@ class AppController extends Controller
         ]);
         return redirect("dashboard");
     }
-    public function proses_hapus_buku($id){
+    public function proses_hapus_buku($id)
+    {
         Book::where("id",$id)->delete();
         return redirect("kelola");
     }
@@ -150,6 +154,39 @@ class AppController extends Controller
 
         return redirect("data/".$request->id."/edit");
     }
-}  
 
+    public function pencarian(Request $request)
+    {
+
+        $q = $request->input('q');
+
+        $books = Book::get();
+        $bookshelfs = Bookshelf::get();
+
+        if (!empty($q)) {
+            $books = Book::where('name', 'LIKE', "%$q%")->get();
+        }
+
+        $data = ([
+            'books'         => $books,
+            'bookshelfs'    => $bookshelfs,
+            'q'             => $q,
+        ]);
+
+        return view('hasil_buku',$data);
+
+    }
+
+    public function generatePDF()
+    {
+        $books = Book::with([ 'recomendation','category','bookshelf' ])->get();
+
+        $pdf = PDF::loadView('pdf.laporan',compact('books'));
+        return $pdf->download('lapotan.pdf');
+    }
+    public function laporan()
+    {
+         return view('laporan');
+    }
+}
 
