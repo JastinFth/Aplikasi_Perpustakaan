@@ -9,7 +9,6 @@
 
         <link rel="icon" type="image/x-icon" href="{{ url('assets_front/favicon.ico') }}" />
 
-
         <link href="{{ url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css') }}" rel="stylesheet" type="text/css" />
 
         <link href="{{ url('https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic') }}" rel="stylesheet" type="text/css" />
@@ -26,11 +25,12 @@
         <div class="bgg text-white showcase-img"  >
             <nav class="navbar navbar-dark bg-dark sticky-top  opacity-75">
                 <div class="container">
-                    <a class="navbar-brand  nip" href="#!" id="judul">IrsyadPedia</a>
+                    <a class="navbar-brand  nip" href="{{ url('/') }}" id="judul">IrsyadPedia</a>
                     <div class="m-2">
-                        <a class="btn btn-primary m-2 p-2 opacity-75 hop"id="judul" href="{{ url('register') }}">Sign Up</a>
-                        <a class="btn btn-primary m-2 p-2 opacity-75 hop"id="judul" href="{{ url('login') }}">Sign In</a>
+                        <a class="btn btn-primary m-2 p-2 opacity-75 hop"id="judul" href="{{ url('register') }}">Register</a>
+                    <a class="btn btn-primary m-2 p-2 opacity-75 hop"id="judul" href="{{ url('login') }}">Login</a>
                     </div>
+
                 </div>
             </nav>
             <header class="masthead">
