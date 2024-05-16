@@ -7,7 +7,7 @@ use App\Models\Category;
 use App\Models\Recommendation;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-
+use PDF;
 
 class AppController extends Controller
 {
@@ -24,7 +24,8 @@ class AppController extends Controller
 
         return view("home",compact('yesData'),$data);
     }
-    public function tambah_buku(){
+    public function tambah_buku()
+    {
 
         $categories = Category::get();
         $bookshelfs = Bookshelf::get();
@@ -36,9 +37,9 @@ class AppController extends Controller
         ]);
         return view("tambah_buku",$data);
     }
-    public function login(){
-        return view("login");
-    }
+    // public function login(){
+    //     return view("login");
+    // }
     public function register(){
         return view("register");
     }
@@ -119,7 +120,8 @@ class AppController extends Controller
         session()->flash('message', 'Data berhasil ditambah');
         return redirect("dashboard");
     }
-    public function proses_hapus_buku($id){
+    public function proses_hapus_buku($id)
+    {
         Book::where("id",$id)->delete();
         session()->flash('message', 'Data berhasil dihapus');
         return redirect("kelola");
@@ -197,6 +199,18 @@ public function proses_edit_buku(Request $request)
 
         return view('hasil_buku',$data);
 
+    }
+
+    public function generatePDF()
+    {
+        $books = Book::with([ 'recomendation','category','bookshelf' ])->get();
+
+        $pdf = PDF::loadView('pdf.laporan',compact('books'));
+        return $pdf->download('lapotan.pdf');
+    }
+    public function laporan()
+    {
+         return view('laporan');
     }
 }
 

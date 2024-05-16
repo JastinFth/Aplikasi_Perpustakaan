@@ -26,10 +26,10 @@
         <div class="bgg text-white showcase-img"  >
             <nav class="navbar navbar-dark bg-dark sticky-top  opacity-75">
                 <div class="container">
-                    <a class="navbar-brand  nip" href="#!" id="judul">IrsyadPedia</a>
+                    <a class="navbar-brand  nip" href="{{ url('/') }}" id="judul">IrsyadPedia</a> 
                     <div class="m-2">
-                        <a class="btn btn-primary m-2 p-2 opacity-75 hop"id="judul" href="{{ url('register') }}">Sign Up</a>
-                    <a class="btn btn-primary m-2 p-2 opacity-75 hop"id="judul" href="{{ url('login') }}">Sign In</a>
+                        <a class="btn btn-primary m-2 p-2 opacity-75 hop"id="judul" href="{{ url('register') }}">Register</a>
+                    <a class="btn btn-primary m-2 p-2 opacity-75 hop"id="judul" href="{{ url('login') }}">Login</a>
                     </div>
 
                 </div>
@@ -101,10 +101,17 @@
                          }
                          ?>
                          <img src="{{ url('pictures/'.$picture) }}" alt="photo" width="113px" height="160px">
+<<<<<<< HEAD
+                         <p class="pt-3">{{$book->name}}</p>
+                         <p class="pt-1">{{$book->bookshelf->bookshelf}}</p>
+                   
+                        </a> 
+=======
                          <p class="">{{$book->name}}</p>
                          <p class="">{{$book->bookshelf->bookshelf}}</p>
 
                         </a>
+>>>>>>> a323e5a7febcc7b500e5d774bb584cc6bb409cf9
                         @endforeach
                     </div>
                 </div>
