@@ -7,7 +7,22 @@
             <div class="card w-100">
               <div class="card-body p-4">
                 <h5 class="card-title fw-semibold mb-4">Data Buku</h5>
+                <hr>
+                <form action="{{ url('dashboard') }}" method="GET" class="mb-4 d-flex">
+                  <div class="input-group" style="max-width: 400px;">
+                    <input type="text" name="q" class="form-control" placeholder="Cari buku..." value="{{ request()->q }}">
+                    <button type="submit" class="btn btn-primary">Cari</button>
+                    @if(request()->has('q'))
+                      <a href="{{ url('dashboard') }}" class="btn btn-danger">Batal</a>
+                    @endif
+                  </div>
+                </form>
                 <div class="table-responsive">
+                @if(session()->has('message'))
+                  <div class="alert alert-success">
+                      {{ session()->get('message') }}
+                  </div>
+                @endif
                   <table class="table text-nowrap mb-0 align-middle">
                     <thead class="text-dark fs-4">
                       <tr>
@@ -50,7 +65,7 @@
                       <tr>
                       <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $no }}</h6></td>
                         <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">{{$book->number_id}}</h6>                        
+                            <h6 class="fw-semibold mb-1">{{$book->isbn}}</h6>                        
                         </td>
                         <td class="border-bottom-0">
                         <?php

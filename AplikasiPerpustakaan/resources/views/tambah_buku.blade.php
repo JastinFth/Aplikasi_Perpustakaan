@@ -1,8 +1,8 @@
 @extends('template')
+@section('title')
+Tambah Buku
+@endsection
 @section('content')
-
-
-
 
     <h1>Tambah Buku</h1>
     <hr>
@@ -12,7 +12,7 @@
                 @csrf
                 <div class="mb-3">
                     <label for="nip" class="form-label">ISBN</label>
-                    <input type="text" class="form-control" name="number_id">
+                    <input type="text" class="form-control" name="isbn">
                 </div>
                 <div class="mb-3">
                     <label for="nip" class="form-label">Nama</label>
@@ -68,14 +68,11 @@
                     </div>
     
                  <br>
-                <div class="mb-3">
+                <div class="mb-3 mt-3">
                     <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
                 </div>
-
-                </form>
-    
+            </form>
         </div>
     </div>
-    
 </div>
 @endsection
