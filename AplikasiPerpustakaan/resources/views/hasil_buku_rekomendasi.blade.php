@@ -1,15 +1,15 @@
 @extends('template_hasil_buku')
 
 @section('search')
-    <form class="d-none d-md-flex ms-4 pembesar">
-        <input class="form-control border-0" type="search" name="q" action="{{ url('/pencarian') }}" value="<?= ($q != NULL) ? $q : "" ?>" placeholder="Search">
+    <form class="d-none d-md-flex ms-4 pembesar" method="GET" action="{{ route('pencarian') }}">
+        <input class="form-control border-0" type="search" name="q"  placeholder="Search">
     </form>
 @endsection
 
 @section('content')
     <div class="container-fluid pt-4 px-4">
         <div class="row g-2 g-lg-3 row-col-2 row-cols-md-3 row-cols-xl-5 ">
-            @foreach($books as $book)
+            @foreach($yesData as $book)
                 <div class="col ">
                     <a href="https://youtube.com" class="card d-flex flex-column h-100" style="width: 12rem; display: flex; flex-direction: column;">
                             <?php

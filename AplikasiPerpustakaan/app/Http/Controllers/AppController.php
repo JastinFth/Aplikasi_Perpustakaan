@@ -13,16 +13,17 @@ class AppController extends Controller
 {
     public function home(Request $request)
     {
-        $yesData = Book::where('recommendation_id',1)->inRandomOrder()->limit(6)->get();
-        $books = Book::get();
-        $bookshelfs = Bookshelf::get();
+        $yesData = Book::where('recommendation_id',1)->inRandomOrder()->limit(5)->get();
+        $books = Book::all();
+        $bookshelfs = Bookshelf::all();
 
         $data = ([
             'books' => $books,
             'bookshelfs' => $bookshelfs,
+            'yesData' => $yesData,
         ]);
 
-        return view("home",compact('yesData'),$data);
+        return view("home",$data);
     }
     public function tambah_buku(){
 
@@ -152,24 +153,18 @@ class AppController extends Controller
 
     public function pencarian(Request $request)
     {
-
         $q = $request->input('q');
+        $books = Book::when($q, function ($queryBuilder) use ($q) {
+            return $queryBuilder->where('name', 'like', "%{$q}%");
+        })->get();
 
-        $books = Book::get();
-        $bookshelfs = Bookshelf::get();
+        return view('hasil_buku', compact('books', 'q'));
+    }
 
-        if (!empty($q)) {
-            $books = Book::where('name', 'LIKE', "%$q%")->get();
-        }
-
-        $data = ([
-            'books'         => $books,
-            'bookshelfs'    => $bookshelfs,
-            'q'             => $q,
-        ]);
-
-        return view('hasil_buku',$data);
-
+    public function rekomendasi()
+    {
+        $yesData = Book::where('recommendation_id',1)->get();
+        return view('hasil_buku_rekomendasi',compact('yesData'));
     }
 }
 

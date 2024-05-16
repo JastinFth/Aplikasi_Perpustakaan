@@ -28,4 +28,5 @@ Route::get('data/{id}/hapus',[AppController::class,"proses_hapus_buku"]);
 Route::get('kelola',[AppController::class,"kelola"]);
 Route::get('kelola/{id}/edit',[AppController::class,"edit_buku"]);
 Route::post('proses-edit-buku',[AppController::class,"proses_edit_buku"]);
-Route::get('/pencarian', [AppController::class, "pencarian"]);
+Route::get('/pencarian', [AppController::class, 'pencarian'])->name('pencarian');
+Route::get('/rekomendasi', [AppController::class, 'rekomendasi'])->name('rekomendasi');

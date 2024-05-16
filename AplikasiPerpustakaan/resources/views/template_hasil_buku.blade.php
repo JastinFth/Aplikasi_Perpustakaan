@@ -49,8 +49,8 @@
                 <h3 class="text-primary">IryadPedia</h3>
             </a>
             <div class="navbar-nav w-100">
-                <a href="/pencarian" class="nav-item nav-link active"><i class="fa-solid fa-book"></i>Semua Buku</a>
-                <a href="widget.html" class="nav-item nav-link"><i class="fa-solid fa-check"></i>Rekomemdasi</a>
+                <a href="{{ route('pencarian') }}" class="nav-item nav-link {{ request()->is('pencarian') ? 'active' : '' }}"><i class="fa-solid fa-book"></i>Semua Buku</a>
+                <a href="{{ route('rekomendasi') }}" class="nav-item nav-link {{ request()->is('rekomendasi') ? 'active' : '' }}"><i class="fa-solid fa-check"></i>Rekomemdasi</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa-solid fa-list-ul"></i>Kategori</a>
                     <div class="dropdown-menu bg-transparent border-0">
