@@ -67,7 +67,7 @@
             <li class="sidebar-item">
               <a class="sidebar-link" href="{{ url('laporan') }}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-print"></i>
+                  <i class="ti ti-printer"></i>
                 </span>
                 <span class="hide-menu">Laporan</span>
               </a>
@@ -127,6 +127,11 @@
       @yield('content')
       </div>
   </div>
+  <script>
+    function printPage(){
+      window.print();
+    }
+  </script>
   <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/sidebarmenu.js"></script>

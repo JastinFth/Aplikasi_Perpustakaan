@@ -88,11 +88,12 @@
                       @endforeach
                     </tbody>
                   </table>
-                  <a href="{{ url('/laporan/download') }}" class="btn btn-primary">Cetak</a>
+                  <a onclick="printPage()" href="#" class="btn btn-primary">Cetak</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+     
 @endsection
