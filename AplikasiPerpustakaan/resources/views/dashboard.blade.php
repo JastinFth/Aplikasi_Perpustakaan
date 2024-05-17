@@ -38,6 +38,9 @@
                         <th class="border-bottom-0">
                           <h6 class="fw-semibold mb-0">Nama</h6>
                         </th>
+                      <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Deskripsi</h6>
+                      </th>
                         <th class="border-bottom-0">
                           <h6 class="fw-semibold mb-0">Kategori</h6>
                         </th>
@@ -65,7 +68,7 @@
                       <tr>
                       <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $no }}</h6></td>
                         <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">{{$book->isbn}}</h6>                        
+                            <h6 class="fw-semibold mb-1">{{$book->isbn}}</h6>
                         </td>
                         <td class="border-bottom-0">
                         <?php
@@ -79,6 +82,11 @@
                         <td class="border-bottom-0">
                           <div class="d-flex align-items-center gap-2">
                             <h6 class="fw-semibold mb-0 fs-4">{{$book->name}}</h6>
+                          </div>
+                        </td>
+                          <td class="border-bottom-0">
+                          <div class="d-flex align-items-center gap-2">
+                            <h6 class="fw-semibold mb-0 fs-4">{{$book->description}}</h6>
                           </div>
                         </td>
                         <td class="border-bottom-0">

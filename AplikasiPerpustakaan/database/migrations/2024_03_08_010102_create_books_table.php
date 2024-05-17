@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('isbn')->unique();
             $table->string('picture',255)->nullable();
             $table->string('name',255);
+            $table->longText('description');
             $table->bigInteger('category_id')->unsigned();
             $table->string('author',255);
             $table->string('publisher',255);

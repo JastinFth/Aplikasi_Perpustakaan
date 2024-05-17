@@ -23,6 +23,10 @@ Tambah Buku
                     <input type="file" class="form-control" name="picture" required>
                 </div>
                 <div class="mb-3">
+                    <label class="label-form">Description</label>
+                    <input type="text" class="form-control" name="description" required>
+                </div>
+                <div class="mb-3">
                     <label  class="form-label">Kategori</label>
                     <select class="form-select" name="category">
                         @foreach($categories as $row)
@@ -50,7 +54,7 @@ Tambah Buku
                 <div class="mb-3">
                     <label for="" class="form-label">Stok Buku</label>
                     <input type="number" name="stock" class="form-control">
-                </div> 
+                </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Rekomendasi</label>
                     <div class="form-check">
@@ -66,7 +70,7 @@ Tambah Buku
                             Tidak
                         </label>
                     </div>
-    
+
                  <br>
                 <div class="mb-3 mt-3">
                     <button type="submit" class="btn btn-sm btn-primary">Simpan</button>

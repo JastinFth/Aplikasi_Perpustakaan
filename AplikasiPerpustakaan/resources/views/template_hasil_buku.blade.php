@@ -49,16 +49,25 @@
                 <h3 class="text-primary">IryadPedia</h3>
             </a>
             <div class="navbar-nav w-100">
-                <a href="{{ route('pencarian') }}" class="nav-item nav-link {{ request()->is('pencarian') ? 'active' : '' }}"><i class="fa-solid fa-book"></i>Semua Buku</a>
-                <a href="{{ route('rekomendasi') }}" class="nav-item nav-link {{ request()->is('rekomendasi') ? 'active' : '' }}"><i class="fa-solid fa-check"></i>Rekomemdasi</a>
+                <a href="{{ route('pencarian') }}" class="nav-item nav-link {{ request()->is('pencarian') ? 'active' : '' }}">
+                    <i class="fa-solid fa-book"></i> Semua Buku
+                </a>
+                <a href="{{ route('rekomendasi') }}" class="nav-item nav-link {{ request()->is('rekomendasi') ? 'active' : '' }}">
+                    <i class="fa-solid fa-check"></i> Rekomendasi
+                </a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa-solid fa-list-ul"></i>Kategori</a>
+                    @php
+                        $isCategoryActive = request()->is('kategori*');
+                    @endphp
+                    <a href="#" class="nav-link dropdown-toggle {{ $isCategoryActive ? 'active' : '' }}" data-bs-toggle="dropdown">
+                        <i class="fa-solid fa-list-ul"></i> Kategori
+                    </a>
                     <div class="dropdown-menu bg-transparent border-0">
-                        <a href="button.html" class="dropdown-item">Novel</a>
-                        <a href="typography.html" class="dropdown-item">Komik</a>
-                        <a href="element.html" class="dropdown-item">Majalah</a>
-                        <a href="element.html" class="dropdown-item">Cerita Pendek</a>
-                        <a href="element.html" class="dropdown-item">Dongeng</a>
+                        <a href="{{ url('/kategori/novel') }}" class="dropdown-item {{ request()->is('kategori/novel') ? 'active' : '' }}">Novel</a>
+                        <a href="{{ url('/kategori/komik') }}" class="dropdown-item {{ request()->is('kategori/komik') ? 'active' : '' }}">Komik</a>
+                        <a href="{{ url('/kategori/majalah') }}" class="dropdown-item {{ request()->is('kategori/majalah') ? 'active' : '' }}">Majalah</a>
+                        <a href="{{ url('/kategori/cerpen') }}" class="dropdown-item {{ request()->is('kategori/cerpen') ? 'active' : '' }}">Cerita Pendek</a>
+                        <a href="{{ url('/kategori/dongeng') }}" class="dropdown-item {{ request()->is('kategori/dongeng') ? 'active' : '' }}">Dongeng</a>
                     </div>
                 </div>
             </div>

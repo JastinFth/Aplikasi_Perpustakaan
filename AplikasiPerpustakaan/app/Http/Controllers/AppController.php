@@ -38,9 +38,7 @@ class AppController extends Controller
         ]);
         return view("tambah_buku",$data);
     }
-    // public function login(){
-    //     return view("login");
-    // }
+
     public function register(){
         return view("register");
     }
@@ -109,6 +107,7 @@ class AppController extends Controller
         Book::create([
             "picture" => $pictureName,
             "isbn" => $isbn,
+            "description" => $request->description,
             "name" => $request->name,
             "category_id" => $request->category,
             "author" => $request->author,
@@ -202,6 +201,37 @@ public function proses_edit_buku(Request $request)
     {
         $yesData = Book::where('recommendation_id',1)->get();
         return view('hasil_buku_rekomendasi',compact('yesData'));
+    }
+    public function kategori_novel()
+    {
+        $novelData = Book::where('category_id',1)->get();
+        return view('hasil_buku_novel',compact('novelData'));
+    }
+    public function kategori_komik()
+    {
+        $komikData = Book::where('category_id',2)->get();
+        return view('hasil_buku_komik',compact('komikData'));
+    }
+    public function kategori_majalah()
+    {
+        $majalahData = Book::where('category_id',3)->get();
+        return view('hasil_buku_majalah',compact('majalahData'));
+    }
+    public function kategori_cerpen()
+    {
+        $cerpenData = Book::where('category_id',4)->get();
+        return view('hasil_buku_cerpen',compact('cerpenData'));
+    }
+    public function kategori_dongeng()
+    {
+        $dongengData = Book::where('category_id',5)->get();
+        return view('hasil_buku_dongeng',compact('dongengData'));
+    }
+
+    public function bookDetail($slug)
+    {
+        $book = Book::with(['category', 'recommendation', 'bookshelf'])->where('slug', $slug)->firstOrFail();
+        return view('detail_buku', compact('book'));
     }
 }
 

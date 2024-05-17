@@ -28,6 +28,12 @@ Route::get('register',[AppController::class,"register"]);
 Route::post('proses-register',[LoginController::class,"proses_register"]);
 Route::get('/pencarian', [AppController::class, "pencarian"])->name('pencarian');
 Route::get('/rekomendasi', [AppController::class, "rekomendasi"])->name('rekomendasi');
+Route::get('/kategori/novel', [AppController::class, "kategori_novel"])->name('novel');
+Route::get('/kategori/komik', [AppController::class, "kategori_komik"])->name('komik');
+Route::get('/kategori/majalah', [AppController::class, "kategori_majalah"])->name('majalah');
+Route::get('/kategori/cerita-pendek', [AppController::class, "kategori_cerpen"])->name('cerpen');
+Route::get('/kategori/dongeng', [AppController::class, "kategori_dongeng"])->name('dongeng');
+Route::get('/buku/{slug}', [AppController::class, 'bookDetail'])->name('book.detail');
 
 
 Route::group(['prefix' =>'','middleware' => ['auth'], 'as' =>'.'], function(){
@@ -40,7 +46,6 @@ Route::group(['prefix' =>'','middleware' => ['auth'], 'as' =>'.'], function(){
     Route::get('dashboard',[AppController::class,"dashboard"]);
     Route::get('/laporan/download', [AppController::class, "pdfDownload"]);
     Route::get('/laporan', [AppController::class, "generatePDF"]);
-
 });
 
 
