@@ -1,8 +1,8 @@
 @extends('template')
+@section('title')
+Tambah Buku
+@endsection
 @section('content')
-
-
-
 
     <h1>Tambah Buku</h1>
     <hr>
@@ -68,7 +68,7 @@
                     </div>
     
                  <br>
-                <div class="mb-3">
+                <div class="mb-3 mt-3">
                     <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
                 </div>
             </form>

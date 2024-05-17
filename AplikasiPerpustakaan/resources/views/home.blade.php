@@ -17,7 +17,6 @@
         <link href="{{ url('app.css') }}" rel="stylesheet" />
     </head>
     <body>
-
          <style>
             .hop:hover{
                 background-color: blue;
@@ -26,7 +25,7 @@
         <div class="bgg text-white showcase-img"  >
             <nav class="navbar navbar-dark bg-dark sticky-top  opacity-75">
                 <div class="container">
-                    <a class="navbar-brand  nip" href="{{ url('/') }}" id="judul">IrsyadPedia</a> 
+                    <a class="navbar-brand  nip" href="{{ url('/') }}" id="judul">IrsyadPedia</a>
                     <div class="m-2">
                         <a class="btn btn-primary m-2 p-2 opacity-75 hop"id="judul" href="{{ url('register') }}">Register</a>
                     <a class="btn btn-primary m-2 p-2 opacity-75 hop"id="judul" href="{{ url('login') }}">Login</a>
@@ -34,116 +33,85 @@
 
                 </div>
             </nav>
-        <header class="masthead">
-            <div class="container position-relative">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6">
-                        <div class="text-center text-white">
-                            <h1 class="mb-5">Silahkan Cari Buku Yang Anda Inginkan!</h1>
-                            <form class="form-subscribe" id="frm_search" action="{{ url('/pencarian') }}"  method="GET">
-                                <div class="row">
-                                    <div class="col">
-                                        <input class="form-control form-control-lg"  id="search" type="search" name="q" placeholder="search">
+            <header class="masthead">
+                <div class="container position-relative">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-6">
+                            <div class="text-center text-white">
+                                <h1 class="mb-5">Silahkan Cari Buku Yang Anda Inginkan!</h1>
+                                <form class="form-subscribe" id="frm_search" action="{{ route('pencarian') }}"  method="GET">
+                                    <div class="row">
+                                        <div class="col">
+                                            <input class="form-control form-control-lg"  id="search" type="search" name="q" placeholder="search">
+                                        </div>
+                                        <div class="col-auto">
+                                            <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button>
+                                        </div>
                                     </div>
-                                    <div class="col-auto">
-                                        <button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button>
-                                    </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </header>
-    </div>
+            </header>
+        </div>
 
-    <div class="bgs "  >
-    <div class="container-fluid mt-3 align-items-center justify-content-center ">
-        <div class="row">
-
-    <style>
-        .wrapper{
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .wrbg{
-            background-color:#f1f1f1;
-        }
-
-        .decoration{
-            text-decoration: none;
-            color: inherit;
-        }
-        .decoration:hover{
-            text-decoration: none;
-            color: inherit;
-             background-color: #5558ef82;
-             transition: 0.8s;
-        }
-
-
-    </style>
-
-<div class="card m-1 p-1 align-items-center   shadow wrbg">
-    <h2 class="m-2 p-1"><b>BUKU REKOMENDASI</b></h2>
-    <div class="wrapper m-2">
-
-        @foreach($yesData as $book)
-        <a style="width:9rem;" class="    card-img-top  m-3 ps-3 pe-auto pt-1 decoration  shadow " href="https://www.youtube.com/">
-
-                         <?php
-                         $picture="no_book.jpg";
-                         if ($book->picture != NUll)
-                         {
-                             $picture =$book->picture;
-                         }
-                         ?>
-                         <img src="{{ url('pictures/'.$picture) }}" alt="photo" width="113px" height="160px">
-<<<<<<< HEAD
-                         <p class="pt-3">{{$book->name}}</p>
-                         <p class="pt-1">{{$book->bookshelf->bookshelf}}</p>
-                   
-                        </a> 
-=======
-                         <p class="">{{$book->name}}</p>
-                         <p class="">{{$book->bookshelf->bookshelf}}</p>
-
-                        </a>
->>>>>>> a323e5a7febcc7b500e5d774bb584cc6bb409cf9
-                        @endforeach
-                    </div>
-                </div>
-
-
+         <div class="container my-5">
+             <div class="card">
+                 <div class="card-header text-center">
+                     Rekomendasi
+                 </div>
+                 <div class="card-body">
+                     <div class="row g-2 g-lg-3 row-col-2 row-cols-md-3 row-cols-xl-5 ">
+                         @foreach($yesData as $book)
+                             <div class="col ">
+                                 <a href="https://youtube.com" class="card d-flex flex-column h-100" style="width: 12rem; display: flex; flex-direction: column;">
+                                         <?php
+                                         $picture="no_book.jpg";
+                                         if ($book->picture != NUll)
+                                         {
+                                             $picture =$book->picture;
+                                         }
+                                         ?>
+                                     <img src="{{ url('pictures/'.$picture) }}" alt="photo buku" width="100%" height="220">
+                                     <div class="card-body flex-grow-1">
+                                         <p class="card-text book-title flex-grow-1" style="color: black;">{{ $book->name }}</p>
+                                         <p class="card-text" style="color: #808080;">{{ $book->author }}</p>
+                                         <p class="card-text " style="color: black;">Rak buku : {{$book->bookshelf->bookshelf}}</p>
+                                     </div>
+                                 </a>
+                             </div>
+                         @endforeach
+                     </div>
+                 </div>
+                 <div class="card-footer text-body-secondary">
+                     <a href="/rekomendasi">See more</a>
+                 </div>
+             </div>
+         </div>
 
 
         <div class="card m-1 p-1 align-items-center   shadow wrbg">
-
             <div class="wrapper m-2">
-
                 <div class="card m-2 p-2 align-items-center   shadow wrbg">
                     <h2 class="m-2 ms-4 p-1"><b>RAK BUKU</b></h2>
                     <div class="wrapper m-2">
-
                         @foreach ($bookshelfs as $bookshelf)
                         <div class="card" width="100">
                             <div class="card-body">
-                                    <p>{{ $bookshelf->bookshelf }}</p>
-                                    <ol type="1">
-                                        @foreach ($bookshelf->books as $book)
-                                        <li>{{ $book->name }}</li>
-                                        @endforeach
-                                    </ol>
+                                <p>{{ $bookshelf->bookshelf }}</p>
+                                <ol type="1">
+                                    @foreach ($bookshelf->books as $book)
+                                    <li>{{ $book->name }}</li>
+                                    @endforeach
+                                </ol>
                             </div>
                         </div>
                         @endforeach
                     </div>
                 </div>
+            </div>
         </div>
-    </div>
-    </div>
 
         <footer class="footer bg-light mt-5 p-4">
             <hr>

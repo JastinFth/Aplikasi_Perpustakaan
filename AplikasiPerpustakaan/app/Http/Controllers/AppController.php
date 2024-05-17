@@ -13,16 +13,17 @@ class AppController extends Controller
 {
     public function home(Request $request)
     {
-        $yesData = Book::where('recommendation_id',1)->inRandomOrder()->limit(6)->get();
-        $books = Book::get();
-        $bookshelfs = Bookshelf::get();
+        $yesData = Book::where('recommendation_id',1)->inRandomOrder()->limit(5)->get();
+        $books = Book::all();
+        $bookshelfs = Bookshelf::all();
 
         $data = ([
             'books' => $books,
             'bookshelfs' => $bookshelfs,
+            'yesData' => $yesData,
         ]);
 
-        return view("home",compact('yesData'),$data);
+        return view("home",$data);
     }
     public function tambah_buku()
     {
@@ -43,9 +44,18 @@ class AppController extends Controller
     public function register(){
         return view("register");
     }
-    public function kelola()
-    {
-        $books = Book::get();
+    public function kelola(Request $request){
+        $q = $request->input('q');
+
+        if ($q) {
+            $books = Book::where('name', 'LIKE', '%' . $q . '%')
+                ->orWhere('isbn', 'LIKE', '%' . $q . '%')
+                ->orWhere('author', 'LIKE', '%' . $q . '%')
+                ->orWhere('publisher', 'LIKE', '%' . $q . '%')
+                ->get();
+        } else {
+            $books = Book::get();
+        }
         $recomendations = Recommendation::get();
         $categories = Category::get();
         $bookshelfs = Bookshelf::get();
@@ -62,23 +72,33 @@ class AppController extends Controller
 
     public function dashboard(Request $request)
     {
+    $q = $request->input('q');
+
+    if ($q) {
+        $books = Book::where('name', 'LIKE', '%' . $q . '%')
+            ->orWhere('isbn', 'LIKE', '%' . $q . '%')
+            ->orWhere('author', 'LIKE', '%' . $q . '%')
+            ->orWhere('publisher', 'LIKE', '%' . $q . '%')
+            ->get();
+    } else {
         $books = Book::get();
-        $recomendations = Recommendation::get();
-        $categories = Category::get();
-        $bookshelfs = Bookshelf::get();
-
-        $data = ([
-            'books' => $books,
-            'recommendations' => $recomendations,
-            'categories' => $categories,
-            'bookshelfs' => $bookshelfs,
-
-        ]);
-
-        return view("dashboard",$data) ;
     }
-    public function proses_tambah_buku(Request $request)
-    {
+
+    $recommendations = Recommendation::get();
+    $categories = Category::get();
+    $bookshelfs = Bookshelf::get();
+
+    $data = [
+        'books' => $books,
+        'recommendations' => $recommendations,
+        'categories' => $categories,
+        'bookshelfs' => $bookshelfs,
+    ];
+
+    return view('dashboard', $data);
+    }
+
+    public function proses_tambah_buku(Request $request){
         $isbn = $request->isbn;
 
         $picture = $request->file("picture");
@@ -97,84 +117,73 @@ class AppController extends Controller
             "stock" => $request->stock,
             "recommendation_id" => $request->recommendation,
         ]);
+
+        session()->flash('message', 'Data berhasil ditambah');
         return redirect("dashboard");
     }
     public function proses_hapus_buku($id)
     {
         Book::where("id",$id)->delete();
+        session()->flash('message', 'Data berhasil dihapus');
         return redirect("kelola");
     }
-    public function edit_buku($id){
-        $books = Book::where("id",$id)->first();
+    public function edit_buku($id)
+{
+    $book = Book::find($id);
 
-        if(!$books){
-            abort(404);
-        }
-
-        $books = Book::get();
-        $recomendations = Recommendation::get();
-        $categories = Category::get();
-        $bookshelfs = Bookshelf::get();
-
-        $data = ([
-            'books' => $books,
-            'recommendations' => $recomendations,
-            'categories' => $categories,
-            'bookshelfs' => $bookshelfs,
-
-        ]);
-
-        return view("edit_buku",$data);
+    if (!$book) {
+        abort(404, 'Book not found');
     }
-    public function proses_edit_buku(Request $request){
-        $books = Book::find($request->id);
-        $isbn = $request->isbn;
 
-        $books->isbn = $isbn;
-        $books->category_id = $request->category;
-        $books->recommendation_id = $request->recommendation;
-        $books->bookshelf_id = $request->bookshelf;
-        $books->name = $request->name;
-        $books->author = $request->author;
-        $books->publisher = $request->publisher;
-        $books->stock = $request->stock;
-        $books->stock = $request->stock;
+    $recommendations = Recommendation::get();
+    $categories = Category::get();
+    $bookshelfs = Bookshelf::get();
 
-    //    if($request->hasFile("picture")){
-    //         $picture = $request->file("picture");
-    //         $pictureName = $isbn.".".Str::random(25).".".$picture->getClientOriginalExtension();
-    //         $picture->move("./pictures/",$pictureName);
+    return view("edit_buku", compact('book', 'recommendations', 'categories', 'bookshelfs'));
+}
 
-    //         $books->picture = $pictureName;
-    //     }
+public function proses_edit_buku(Request $request)
+{
+    $book = Book::find($request->id);
 
-        $books->save();
-
-        session()->flash('message', 'Data berhasil disimpan');
-
-        return redirect("data/".$request->id."/edit");
+    if (!$book) {
+        abort(404, 'Book not found');
     }
+
+    $book->isbn = $request->isbn;
+    $book->category_id = $request->category;
+    $book->recommendation_id = $request->recommendation;
+    $book->bookshelf_id = $request->bookshelf;
+    $book->name = $request->name;
+    $book->author = $request->author;
+    $book->publisher = $request->publisher;
+    $book->stock = $request->stock;
+
+    if ($request->hasFile("picture")) {
+        $picture = $request->file("picture");
+        $pictureName = $request->isbn . "." . Str::random(25) . "." . $picture->getClientOriginalExtension();
+        $picture->move(public_path("pictures/"), $pictureName);
+
+        $book->picture = $pictureName;
+    }
+
+    $book->save();
+
+    session()->flash('edit', 'Data berhasil diedit');
+
+    return redirect("kelola/{$book->id}/edit");
+}
+
+
 
     public function pencarian(Request $request)
     {
-
         $q = $request->input('q');
+        $books = Book::when($q, function ($queryBuilder) use ($q) {
+            return $queryBuilder->where('name', 'like', "%{$q}%");
+        })->get();
 
-        $books = Book::get();
-        $bookshelfs = Bookshelf::get();
-
-        if (!empty($q)) {
-            $books = Book::where('name', 'LIKE', "%$q%")->get();
-        }
-
-        $data = ([
-            'books'         => $books,
-            'bookshelfs'    => $bookshelfs,
-            'q'             => $q,
-        ]);
-
-        return view('hasil_buku',$data);
-
+        return view('hasil_buku', compact('books', 'q'));
     }
 
   
@@ -182,8 +191,15 @@ class AppController extends Controller
     {
         $books = Book::with(['recommendation','category','bookshelf'])->get();  
          return view('laporan', compact('books'));
+         
 
 
+    }
+
+    public function rekomendasi()
+    {
+        $yesData = Book::where('recommendation_id',1)->get();
+        return view('hasil_buku_rekomendasi',compact('yesData'));
     }
     public function downloadPDF()
     {

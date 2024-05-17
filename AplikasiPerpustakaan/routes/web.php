@@ -23,10 +23,11 @@ Route::get('/',[AppController::class,"home"]);
 
 Route::get('login',[LoginController::class,"login"]);
 Route::post('proses-login',[LoginController::class,"proses_login"]);
-Route::get('logout',[LoginController::class,"logout"]); 
-Route::get('register',[AppController::class,"register"]); 
+Route::get('logout',[LoginController::class,"logout"]);
+Route::get('register',[AppController::class,"register"]);
 Route::post('proses-register',[LoginController::class,"proses_register"]);
-Route::get('/pencarian', [AppController::class, "pencarian"]);
+Route::get('/pencarian', [AppController::class, "pencarian"])->name('pencarian');
+Route::get('/rekomendasi', [AppController::class, "rekomendasi"])->name('rekomendasi');
 
 
 Route::group(['prefix' =>'','middleware' => ['auth'], 'as' =>'.'], function(){
@@ -37,7 +38,7 @@ Route::group(['prefix' =>'','middleware' => ['auth'], 'as' =>'.'], function(){
     Route::get('kelola/{id}/edit',[AppController::class,"edit_buku"]);
     Route::post('proses-edit-buku',[AppController::class,"proses_edit_buku"]); 
     Route::get('dashboard',[AppController::class,"dashboard"]); 
-    Route::get('/laporan/download', [AppController::class, "downloadPDF"])->name('download');
+    Route::get('/laporan/download', [AppController::class, "downloadPDF"])->name('pdf.download');
     Route::get('/laporan', [AppController::class, "laporan"])->name('laporan');
 
     
