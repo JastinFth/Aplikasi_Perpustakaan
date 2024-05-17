@@ -37,8 +37,9 @@ Route::group(['prefix' =>'','middleware' => ['auth'], 'as' =>'.'], function(){
     Route::get('kelola/{id}/edit',[AppController::class,"edit_buku"]);
     Route::post('proses-edit-buku',[AppController::class,"proses_edit_buku"]); 
     Route::get('dashboard',[AppController::class,"dashboard"]); 
-    Route::get('/laporan/download', [AppController::class, "pdfDownload"]);
-    Route::get('/laporan', [AppController::class, "generatePDF"]->name('laporan'));
+    Route::get('/laporan/download', [AppController::class, "downloadPDF"])->name('download');
+    Route::get('/laporan', [AppController::class, "laporan"])->name('laporan');
+
     
 });
 

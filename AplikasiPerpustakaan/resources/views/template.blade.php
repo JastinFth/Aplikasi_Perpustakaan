@@ -64,26 +64,27 @@
                 <span class="hide-menu">Kelola</span>
               </a>
             </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{{ url('laporan') }}" aria-expanded="false">
+                <span>
+                  <i class="ti ti-article"></i>
+                </span>
+                <span class="hide-menu">Laporan</span>
+              </a>
+            </li>
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">AUTH</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="{{ url('login') }}" aria-expanded="false">
+              <a class="sidebar-link" href="{{ url('logout') }}" >
                 <span>
-                  <i class="ti ti-login"></i>
+                  <i class="ti ti-logout"></i>
                 </span>
-                <span class="hide-menu">Login</span>
+                <span class="hide-menu">Logout</span>
               </a>
             </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="{{ url('register') }}" aria-expanded="false">
-                <span>
-                  <i class="ti ti-user-plus"></i>
-                </span>
-                <span class="hide-menu">Register</span>
-              </a>
-            </li>
+            
             
           </ul>
         </nav>

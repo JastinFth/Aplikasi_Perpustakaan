@@ -88,6 +88,7 @@
                       @endforeach
                     </tbody>
                   </table>
+                  <a href="{{ url('/laporan/download') }}" class="btn btn-primary">Cetak</a>
                 </div>
               </div>
             </div>

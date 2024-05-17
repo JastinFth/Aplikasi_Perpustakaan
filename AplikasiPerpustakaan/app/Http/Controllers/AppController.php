@@ -177,16 +177,21 @@ class AppController extends Controller
 
     }
 
-    public function generatePDF()
-    {
-        $books = Book::with([ 'recomendation','category','bookshelf' ])->get();
-
-        $pdf = PDF::loadView('pdf.laporan',compact('books'));
-        return $pdf->download('lapotan.pdf');
-    }
+  
     public function laporan()
     {
-         return view('laporan');
+        $books = Book::with(['recommendation','category','bookshelf'])->get();  
+         return view('laporan', compact('books'));
+
+
     }
+    public function downloadPDF()
+    {
+        $books = Book::with(['recommendation','category','bookshelf'])->get();
+        $pdf = PDF::loadView('pdf.laporan',compact('books'));
+        return $pdf->download('laporan_buku.pdf');
+    }
+    
+
 }
 
