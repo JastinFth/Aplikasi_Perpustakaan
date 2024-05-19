@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {

@@ -185,16 +185,14 @@ public function proses_edit_buku(Request $request)
         return view('hasil_buku', compact('books', 'q'));
     }
 
-    public function generatePDF()
-    {
-        $books = Book::with([ 'recomendation','category','bookshelf' ])->get();
 
-        $pdf = PDF::loadView('pdf.laporan',compact('books'));
-        return $pdf->download('lapotan.pdf');
-    }
     public function laporan()
     {
-        return view('laporan');
+        $books = Book::with(['recommendation','category','bookshelf'])->get();
+         return view('laporan', compact('books'));
+
+
+
     }
 
     public function rekomendasi()
@@ -233,5 +231,6 @@ public function proses_edit_buku(Request $request)
         $book = Book::with(['category', 'recommendation', 'bookshelf'])->where('slug', $slug)->firstOrFail();
         return view('detail_buku', compact('book'));
     }
+
 }
 

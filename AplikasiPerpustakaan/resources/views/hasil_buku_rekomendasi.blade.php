@@ -11,7 +11,7 @@
         <div class="row g-2 g-lg-3 row-col-2 row-cols-md-3 row-cols-xl-5 ">
             @foreach($yesData as $book)
                 <div class="col ">
-                    <a href="https://youtube.com" class="card d-flex flex-column h-100" style="width: 12rem; display: flex; flex-direction: column;">
+                    <a href="{{ route('book.detail',$book->slug) }}" class="card d-flex flex-column h-100" style="width: 12rem; display: flex; flex-direction: column;">
                             <?php
                             $picture="no_book.jpg";
                             if ($book->picture != NUll)

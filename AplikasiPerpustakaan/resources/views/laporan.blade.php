@@ -7,6 +7,7 @@
             <div class="card w-100">
               <div class="card-body p-4">
                 <h5 class="card-title fw-semibold mb-4">Data Buku</h5>
+                  <a href="#" onclick="printPage()" class="btn btn-primary">Cetak</a>
                 <div class="table-responsive">
                   <table class="table text-nowrap mb-0 align-middle">
                     <thead class="text-dark fs-4">
@@ -50,7 +51,7 @@
                       <tr>
                       <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $no }}</h6></td>
                         <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">{{$book->isbn}}</h6>                        
+                            <h6 class="fw-semibold mb-1">{{$book->isbn}}</h6>
                         </td>
                         <td class="border-bottom-0">
                         <?php
